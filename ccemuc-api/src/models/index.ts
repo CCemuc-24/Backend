@@ -11,5 +11,5 @@ if (!config) {
 
 export const sequelize = new Sequelize({
   ...config,
-  models: [User], // Especifica los modelos explícitamente
+  models: [User], // Especificar los modelos explícitamente
 });

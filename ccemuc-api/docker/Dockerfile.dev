@@ -7,7 +7,6 @@ WORKDIR /ccemuc-api
 # Copy the files that declares the dependencies (in this case using yarn)
 COPY package.json ./
 COPY package-lock.json ./
-# COPY run-migrations-script.js /stocks-api/run-migrations-script.js
 
 # Install the dependencies
 RUN npm install
@@ -17,7 +16,6 @@ COPY . .
 
 # Cambiar permisos de ejecución
 RUN chmod +x /ccemuc-api/start.sh
-# RUN chmod +x /ccemuc-api/run-migrations.sh
 
 # Run command to start the process runing a shell command using node
 ENTRYPOINT [ "./start.sh" ]

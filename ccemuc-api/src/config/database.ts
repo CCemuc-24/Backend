@@ -7,6 +7,7 @@ export interface DatabaseConfig {
     database: string;
     host: string;
     dialect: Dialect;
+    sinchronize: boolean;
   };
 }
 
@@ -17,5 +18,6 @@ export const databaseConfig: DatabaseConfig = {
     database: 'ccemuc_development_db',
     host: 'db-ccemuc',
     dialect: 'postgres',
+    sinchronize: true,
   },
 };

@@ -1,29 +1,26 @@
 import Koa from 'koa';
-import Router from '@koa/router';
+import bodyParser from 'koa-bodyparser';
 import { sequelize } from './models';
+import userRoutes from './routes/user.routes';
 
 const app = new Koa();
-const router = new Router();
 
-router.get('/', (ctx) => {
-  ctx.body = 'Hola Mundo con Koa, TypeScript y Sequelize!';
-});
-
-app.use(router.routes()).use(router.allowedMethods());
+app.use(bodyParser());
+app.use(userRoutes.routes()).use(userRoutes.allowedMethods());
 
 const PORT = process.env.PORT || 3000;
 
-async function startServer() {
+async function start() {
   try {
     await sequelize.authenticate();
-    console.log('Conexión a la base de datos establecida correctamente.');
-    await sequelize.sync(); // Esto sincroniza los modelos con la base de datos
+    console.log('Database connected.');
+    await sequelize.sync(); // En producción, es mejor usar migraciones
     app.listen(PORT, () => {
-      console.log(`Servidor corriendo en http://localhost:${PORT}`);
+      console.log(`Server running on http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.error('Unable to connect to the database:', error);
+    console.error('Unable to start server:', error);
   }
 }
 
-startServer();
+start();
