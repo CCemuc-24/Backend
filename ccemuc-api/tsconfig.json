@@ -5,6 +5,8 @@
     "strict": true,
     "esModuleInterop": true,
     "outDir": "./dist",
-    "rootDir": "ccemuc-api/src"
+    "rootDir": "ccemuc-api/src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   }
 }

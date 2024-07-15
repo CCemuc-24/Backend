@@ -23,8 +23,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./ccemuc-api:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./ccemuc-api/src:/ccemuc-api/src
     env_file:
       - ./env/ccemuc-api.env
     depends_on:
