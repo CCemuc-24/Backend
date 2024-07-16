@@ -1,5 +1,6 @@
-import { Table, Column, Model, DataType, PrimaryKey, Default } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, Default, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
+import Purchase from './purchase.model';
 
 @Table
 export default class User extends Model {
@@ -46,4 +47,10 @@ export default class User extends Model {
     allowNull: false,
   })
   carrerYear!: number;
+
+  @HasMany(() => Purchase, {
+    onDelete: 'CASCADE',
+    hooks: true
+  })
+  purchases!: Purchase[];
 }
