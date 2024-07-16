@@ -1,7 +1,7 @@
 import Router from '@koa/router';
 import { UserController } from '../controllers/user.controller';
 
-const router = new Router({ prefix: '/users' });
+const router = new Router();
 const userController = new UserController();
 
 router.post('/', userController.create);

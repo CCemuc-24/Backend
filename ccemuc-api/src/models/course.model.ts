@@ -1,9 +1,10 @@
 import { Table, Column, Model, DataType, PrimaryKey, Default, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
+import { CourseType } from '../enums/course-type.enum';
 import Purchase from './purchase.model';
 
 @Table
-export default class User extends Model {
+export default class Course extends Model {
   @PrimaryKey
   @Default(uuidv4)
   @Column({
@@ -15,38 +16,37 @@ export default class User extends Model {
     type: DataType.STRING,
     allowNull: false,
   })
-  names!: string;
+  title!: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  lastNames!: string;
+  description!: string;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.ENUM(...Object.values(CourseType)),
     allowNull: false,
   })
-  rut!: string;
-
-  @Column({
-    type: DataType.STRING,
-    unique: true,
-    allowNull: false,
-  })
-  email!: string;
-
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  university!: string;
+  type!: CourseType;
 
   @Column({
     type: DataType.INTEGER,
     allowNull: false,
   })
-  carrerYear!: number;
+  price!: number;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  capacity!: number;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: false,
+  })
+  date!: Date;
 
   @HasMany(() => Purchase, {
     onDelete: 'CASCADE',
