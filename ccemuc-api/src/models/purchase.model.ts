@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, PrimaryKey, Default, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, Default, ForeignKey, BelongsTo, Unique } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import User from './user.model';
 import Course from './course.model';
@@ -12,6 +12,7 @@ export default class Purchase extends Model {
   })
   id!: string;
 
+  @Unique('UserCourseUnique')
   @ForeignKey(() => User)
   @Column({
     type: DataType.UUID,
@@ -22,6 +23,7 @@ export default class Purchase extends Model {
   @BelongsTo(() => User)
   user!: User;
 
+  @Unique('UserCourseUnique')
   @ForeignKey(() => Course)
   @Column({
     type: DataType.UUID,
@@ -44,4 +46,6 @@ export default class Purchase extends Model {
     defaultValue: false,
   })
   isPaid!: boolean;
+  
+
 }
