@@ -37,4 +37,11 @@ export default class Purchase extends Model {
     allowNull: false,
   })
   confirmationCode!: string;
+
+  @Column({
+    type: DataType.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  })
+  isPaid!: boolean;
 }
