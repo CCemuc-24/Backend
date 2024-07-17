@@ -14,7 +14,7 @@ async function start() {
   try {
     await sequelize.authenticate();
     console.log('Database connected.');
-    await sequelize.sync(); // En producción, es mejor usar migraciones
+    // await sequelize.sync(); // En producción, es mejor usar migraciones
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
