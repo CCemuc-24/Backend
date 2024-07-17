@@ -133,3 +133,5 @@ dist
 
 # agregamos DS_Store
 .DS_Store
+
+*.pem

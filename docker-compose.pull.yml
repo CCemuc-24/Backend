@@ -14,18 +14,11 @@ services:
       - ccemuc-network
 
   ccemuc-api:
-    container_name: ccemuc-api
-    build:
-      context: ./ccemuc-api
-      dockerfile: docker/Dockerfile.dev
-    platform: linux/amd64
-    environment:
-      NODE_ENV: development
+    image: public.ecr.aws/g3j2f9k6/ccemuc-api:latest
     ports:
-      - "3000:3000"
-    volumes:
-      - ./ccemuc-api/src:/ccemuc-api/src
-      - /usr/src/app/node_modules
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
     env_file:
       - ./env/ccemuc-api.env
     depends_on:
@@ -33,9 +26,11 @@ services:
     networks:
       - ccemuc-network
 
+
 networks:
   ccemuc-network:
     driver: bridge
 
 volumes:
   pgdata_ccemuc:
+  red_data: {}
