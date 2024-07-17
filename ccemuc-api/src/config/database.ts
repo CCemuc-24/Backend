@@ -8,6 +8,7 @@ export interface DatabaseConfig {
     host: string;
     dialect: Dialect;
     synchronize: boolean;
+    seederStorage: 'sequelize' | 'sequelize-cli';
   };
 }
 
@@ -19,5 +20,6 @@ export const databaseConfig: DatabaseConfig = {
     host: 'db-ccemuc',
     dialect: 'postgres',
     synchronize: true,
+    seederStorage: 'sequelize',
   },
 };

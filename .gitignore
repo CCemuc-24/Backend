@@ -130,3 +130,6 @@ dist
 .pnp.*
 
 /env
+
+# agregamos DS_Store
+.DS_Store
