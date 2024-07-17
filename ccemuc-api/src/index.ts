@@ -2,6 +2,7 @@ import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
 import { sequelize } from './models';
 import router from './routes';
+import { runSeeders } from './seeders';
 
 const app = new Koa();
 
@@ -15,6 +16,7 @@ async function start() {
     await sequelize.authenticate();
     console.log('Database connected.');
     await sequelize.sync(); // En producción, es mejor usar migraciones
+    await runSeeders(sequelize, 'down');
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
