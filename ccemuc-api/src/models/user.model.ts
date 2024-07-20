@@ -1,6 +1,7 @@
 import { Table, Column, Model, DataType, PrimaryKey, Default, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import Purchase from './purchase.model';
+import { isRut } from '../utils/rutValidator';
 
 @Table
 export default class User extends Model {
@@ -27,6 +28,14 @@ export default class User extends Model {
     type: DataType.STRING,
     allowNull: false,
     unique: true,
+    validate: {
+      isValidRut(value: string) {
+        const { status, message } = isRut(value);
+        if (!status) {
+          throw new Error(message);
+        }
+      },
+    },
   })
   rut!: string;
 
@@ -51,7 +60,7 @@ export default class User extends Model {
 
   @HasMany(() => Purchase, {
     onDelete: 'CASCADE',
-    hooks: true
+    hooks: true,
   })
   purchases!: Purchase[];
 }

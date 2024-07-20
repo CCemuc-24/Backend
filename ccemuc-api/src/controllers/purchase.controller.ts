@@ -19,6 +19,24 @@ export class PurchaseController {
   async create(ctx: Context) {
     const purchaseData = ctx.request.body as Omit<PurchaseAttributes, 'id'>;
     try {
+      const course = await Course.findByPk(purchaseData.courseId);
+
+      if (!course) {
+        ctx.status = 404;
+        ctx.body = { error: 'Course not found' };
+        return;
+      }
+
+      const purchaseCount = await Purchase.count({
+        where: { courseId: purchaseData.courseId }
+      });
+
+      if (purchaseCount >= course.capacity) {
+        ctx.status = 400;
+        ctx.body = { error: 'Course capacity is full' };
+        return;
+      }
+
       const existingPurchase = await Purchase.findOne({
         where: {
           userId: purchaseData.userId,
@@ -116,6 +134,7 @@ export class PurchaseController {
           purchase.isPaid = true;
           await purchase.save();
           ctx.body = purchase;
+          await this.updateCourseCapacity(purchase);
           await this.createPaidPurchaseForAllCoreCourses(purchase);
         } else {
           ctx.status = 400;
@@ -130,25 +149,49 @@ export class PurchaseController {
       ctx.body = { error: (error as Error).message };
     }
   }
-  
 
   private async createPaidPurchaseForAllCoreCourses(purchase: Purchase) {
     try {
-      console.log('Creating paid purchases for all core courses');
       const { userId, confirmationCode } = purchase;
       const coreCourses = await Course.findAll({ where: { type: CourseType.CORE } });
-      const corePurchases = coreCourses.map(course => ({
-        userId,
-        courseId: course.id,
-        confirmationCode,
-        isPaid: true,
-      }));
-      
-      await Purchase.bulkCreate(corePurchases);
 
-      console.log('Paid purchases for core courses created successfully');
+      for (const course of coreCourses) {
+        const existingCorePurchase = await Purchase.findOne({
+          where: {
+            userId,
+            courseId: course.id,
+          },
+        });
+
+        if (!existingCorePurchase) {
+          const corePurchase = {
+            userId,
+            courseId: course.id,
+            confirmationCode,
+            isPaid: true,
+          };
+
+          const newPurchase = Purchase.build(corePurchase);
+          await newPurchase.save();
+          await this.updateCourseCapacity(newPurchase);
+        }
+      }
+
     } catch (error) {
       console.error('Error creating paid purchases for core courses:', error);
+      throw error;
+    }
+  }
+
+  private async updateCourseCapacity(purchase: Purchase) {
+    try {
+      const course = await Course.findByPk(purchase.courseId);
+      if (course && course.capacity > 0) {
+        course.capacity -= 1;
+        await course.save();
+      }
+    } catch (error) {
+      console.error('Error updating course capacity:', error);
       throw error;
     }
   }
