@@ -22,7 +22,7 @@ export class UserController {
       if (error instanceof ValidationError) {
         const field = error.errors[0].path;
         ctx.status = 409;
-          ctx.body = { error: `Error de duplicidad en el campo '${field}'` };
+          ctx.body = { error: error.message, field };
       } else {
         ctx.status = 400;
         ctx.body = { error: (error as Error).message };
