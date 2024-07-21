@@ -56,7 +56,7 @@ export class PurchaseController {
       }
       const webPayResponse = await this.createWebPayTransaction(purchase);
       ctx.status = 201;
-      ctx.body = { purchase, webPayResponse}
+      ctx.body = { purchase, webPayResponse }
 
     } catch (error) {
       if (error instanceof ValidationError) {
@@ -167,9 +167,14 @@ export class PurchaseController {
       const purchase = await Purchase.findByPk(id);
       if (purchase) {
         if (!purchase.isPaid) {
-          const webpayResponse = await this.confirmWebPayTransaction(purchase, token_ws);
-          ctx.status = 200;
-          ctx.body = {purchase, webpayResponse};
+          const { webPayResponse, transactionStatus } = await this.confirmWebPayTransaction(purchase, token_ws);
+          if (transactionStatus === 'AUTHORIZED') {
+            ctx.status = 200;
+            ctx.body = { purchase, webPayResponse };
+          } else {
+            ctx.status = 400;
+            ctx.body = { error: `Transaction not authorized. Status: ${transactionStatus}` };
+          }
         } else {
           ctx.status = 400;
           ctx.body = { error: 'Purchase already confirmed as paid' };
@@ -188,13 +193,16 @@ export class PurchaseController {
     try {
       const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
       const response = await transaction.commit(token_ws);
-      if (response.status === 'AUTHORIZED') {
+      const transactionStatus = response.status;
+
+      if (transactionStatus === 'AUTHORIZED') {
         purchase.isPaid = true;
         await purchase.save();
         await this.updateCourseCapacity(purchase);
         await this.createPaidPurchaseForAllCoreCourses(purchase);
-        return response;
       }
+
+      return { webPayResponse: response, transactionStatus };
     } catch (error) {
       console.error('Error confirming transaction:', error);
       throw error;
@@ -246,5 +254,4 @@ export class PurchaseController {
       throw error;
     }
   }
-
 }
