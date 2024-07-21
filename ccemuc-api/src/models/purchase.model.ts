@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, PrimaryKey, Default, ForeignKey, BelongsTo, Unique } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, Default, ForeignKey, BelongsTo, Unique, BeforeCreate } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import User from './user.model';
 import Course from './course.model';
@@ -31,14 +31,11 @@ export default class Purchase extends Model {
   })
   courseId!: string;
 
-  @BelongsTo(() => Course)
-  course!: Course;
-
   @Column({
     type: DataType.STRING,
-    allowNull: false,
+    allowNull: true,
   })
-  confirmationCode!: string;
+  buyOrder!: string;
 
   @Column({
     type: DataType.BOOLEAN,
@@ -46,6 +43,16 @@ export default class Purchase extends Model {
     defaultValue: false,
   })
   isPaid!: boolean;
-  
+
+  @BelongsTo(() => Course)
+  course!: Course;
+
+  @BeforeCreate
+  static generateBuyOrder(instance: Purchase) {
+    const randomString = Math.random().toString(36).substring(2, 15);
+    const timestamp = Date.now().toString(36);
+    instance.buyOrder = `${timestamp}-${randomString}`;
+  }
 
 }
+

@@ -4,6 +4,8 @@ import { PurchaseAttributes } from '../interfaces/purchase.interface';
 import Course from '../models/course.model';
 import { CourseType } from '../enums/course-type.enum';
 import { ValidationError } from 'sequelize';
+import { WebpayPlus } from 'transbank-sdk';
+import { Options, IntegrationApiKeys, Environment, IntegrationCommerceCodes } from 'transbank-sdk';
 
 export class PurchaseController {
   constructor() {
@@ -44,15 +46,18 @@ export class PurchaseController {
         },
       });
 
+      let purchase;
       if (existingPurchase) {
         ctx.status = 200;
-        ctx.body = existingPurchase;
+        purchase = existingPurchase;
       } else {
-        const purchase = Purchase.build(purchaseData);
+        purchase = Purchase.build(purchaseData);
         await purchase.save();
-        ctx.status = 201;
-        ctx.body = purchase;
       }
+      const webPayResponse = await this.createWebPayTransaction(purchase);
+      ctx.status = 201;
+      ctx.body = { purchase, webPayResponse}
+
     } catch (error) {
       if (error instanceof ValidationError) {
         const field = error.errors[0].path;
@@ -62,6 +67,29 @@ export class PurchaseController {
         ctx.status = 400;
         ctx.body = { error: (error as Error).message };
       }
+    }
+  }
+
+  private async createWebPayTransaction(purchase: Purchase) {
+    try {
+      const { id, userId, courseId, buyOrder } = purchase;
+      const course = await Course.findByPk(courseId);
+      if (course) {
+        const amount = course.price;
+        const sessionId = userId.toString();
+        const returnUrl = `${process.env.WEBPAY_RETURN_URL}?purchaseId=${id}`;
+        const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
+        const response = await transaction.create(
+          buyOrder,
+          sessionId,
+          amount,
+          returnUrl,
+        );
+        return response;
+      }
+    } catch (error) {
+      console.error('Error creating transaction:', error);
+      throw error;
     }
   }
 
@@ -128,14 +156,20 @@ export class PurchaseController {
   async confirm(ctx: Context) {
     try {
       const { id } = ctx.params;
+      const { token_ws } = ctx.request.body as { token_ws?: string };
+      
+      if (!token_ws) {
+        ctx.status = 400;
+        ctx.body = { error: 'Missing token_ws' };
+        return;
+      }
+      
       const purchase = await Purchase.findByPk(id);
       if (purchase) {
         if (!purchase.isPaid) {
-          purchase.isPaid = true;
-          await purchase.save();
-          ctx.body = purchase;
-          await this.updateCourseCapacity(purchase);
-          await this.createPaidPurchaseForAllCoreCourses(purchase);
+          const webpayResponse = await this.confirmWebPayTransaction(purchase, token_ws);
+          ctx.status = 200;
+          ctx.body = {purchase, webpayResponse};
         } else {
           ctx.status = 400;
           ctx.body = { error: 'Purchase already confirmed as paid' };
@@ -150,9 +184,26 @@ export class PurchaseController {
     }
   }
 
+  private async confirmWebPayTransaction(purchase: Purchase, token_ws: string) {
+    try {
+      const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
+      const response = await transaction.commit(token_ws);
+      if (response.status === 'AUTHORIZED') {
+        purchase.isPaid = true;
+        await purchase.save();
+        await this.updateCourseCapacity(purchase);
+        await this.createPaidPurchaseForAllCoreCourses(purchase);
+        return response;
+      }
+    } catch (error) {
+      console.error('Error confirming transaction:', error);
+      throw error;
+    }
+  }
+
   private async createPaidPurchaseForAllCoreCourses(purchase: Purchase) {
     try {
-      const { userId, confirmationCode } = purchase;
+      const { userId, buyOrder } = purchase;
       const coreCourses = await Course.findAll({ where: { type: CourseType.CORE } });
 
       for (const course of coreCourses) {
@@ -167,7 +218,7 @@ export class PurchaseController {
           const corePurchase = {
             userId,
             courseId: course.id,
-            confirmationCode,
+            buyOrder,
             isPaid: true,
           };
 
@@ -195,4 +246,5 @@ export class PurchaseController {
       throw error;
     }
   }
+
 }
