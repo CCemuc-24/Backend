@@ -16,6 +16,7 @@ export class PurchaseController {
     this.delete = this.delete.bind(this);
     this.confirm = this.confirm.bind(this);
     this.createPaidPurchaseForAllCoreCourses = this.createPaidPurchaseForAllCoreCourses.bind(this);
+    this.statusToken = this.statusToken.bind(this);
   }
 
   async create(ctx: Context) {
@@ -157,6 +158,24 @@ export class PurchaseController {
     }
   }
 
+  async statusToken(ctx: Context) {
+    try {
+      const { token } = ctx.params
+      if (!token) {
+        ctx.status = 400;
+        ctx.body = { error: 'Transbank no devolvió el código de confirmación' };
+        return;
+      }
+      const transactionStatus = await this.confirmWebPayToken(token);
+      ctx.status = 200;
+      ctx.body = { transactionStatus };
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = { error: (error as Error).message };
+    }
+  }
+
+
   async confirm(ctx: Context) {
     try {
       const { id } = ctx.params;
@@ -164,7 +183,7 @@ export class PurchaseController {
       
       if (!token_ws) {
         ctx.status = 400;
-        ctx.body = { error: 'Missing token_ws' };
+        ctx.body = { error: 'Transbank no devolvió el código de confirmación' };
         return;
       }
       
@@ -172,24 +191,36 @@ export class PurchaseController {
 
       if (!purchase) {
         ctx.status = 404;
-        ctx.body = { error: 'Purchase not found' };
+        ctx.body = { error: 'La compra no fue encontrada' };
         return;
       }
+      
+      const transactionStatus = await this.confirmWebPayToken(token_ws);
+      
+      if (transactionStatus.status === 'ERROR') {
+        ctx.status = 402;
+        ctx.body = { error: transactionStatus.error };
+        return;
+      }
+
+      console.log(transactionStatus);
       
       if (purchase.isPaid) {
-        ctx.status = 400;
-        ctx.body = { error: 'Purchase already confirmed as paid' };
+        ctx.status = 200;
+        ctx.body = { purchase, transactionStatus }
         return;
       }
+
+      console.log(transactionStatus.status);
       
-      const { webPayResponse, transactionStatus } = await this.confirmWebPayTransaction(purchase, token_ws);
-      
-      if (transactionStatus === 'AUTHORIZED') {
+      if (transactionStatus.status === 'AUTHORIZED') {
+        await this.confirmPurchase(purchase);
+        await this.createPaidPurchaseForAllCoreCourses(purchase);
         ctx.status = 200;
-        ctx.body = { purchase, webPayResponse };
+        ctx.body = { purchase, transactionStatus };
       } else {
         ctx.status = 400;
-        ctx.body = { error: `Transaction not authorized. Status: ${transactionStatus}` };
+        ctx.body = { error: `Transacción no autorizada` };
       }
     } catch (error) {
       ctx.status = 500;
@@ -197,23 +228,23 @@ export class PurchaseController {
     }
   }
 
-  private async confirmWebPayTransaction(purchase: Purchase, token_ws: string) {
+  async confirmWebPayToken(token_ws: string) {
     try {
       const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
       const response = await transaction.commit(token_ws);
-      const transactionStatus = response.status;
-
-
-      if (transactionStatus === 'AUTHORIZED') {
-        purchase.isPaid = true;
-        await purchase.save();
-        await this.updateCourseCapacity(purchase.courseId);
-        await this.createPaidPurchaseForAllCoreCourses(purchase);
-      }
-
-      return { webPayResponse: response, transactionStatus };
+      return response;
     } catch (error) {
-      console.error('Error confirming transaction:', error);
+      return { status: 'ERROR', error: error };
+    }
+  }
+
+  private async confirmPurchase(purchase: Purchase) {
+    try {
+      purchase.isPaid = true;
+      await purchase.save();
+      await this.updateCourseCapacity(purchase.courseId);
+    } catch (error) {
+      console.error('Error confirmando la compra:', error);
       throw error;
     }
   }
