@@ -54,6 +54,7 @@ export class PurchaseController {
         purchase = Purchase.build(purchaseData);
         await purchase.save();
       }
+
       const webPayResponse = await this.createWebPayTransaction(purchase);
       ctx.status = 201;
       ctx.body = { purchase, webPayResponse }
@@ -74,19 +75,22 @@ export class PurchaseController {
     try {
       const { id, userId, courseId, buyOrder } = purchase;
       const course = await Course.findByPk(courseId);
-      if (course) {
-        const amount = course.price;
-        const sessionId = userId.toString();
-        const returnUrl = `${process.env.WEBPAY_RETURN_URL}?purchaseId=${id}`;
-        const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
-        const response = await transaction.create(
-          buyOrder,
-          sessionId,
-          amount,
-          returnUrl,
-        );
-        return response;
+      if (!course) {
+        throw new Error('Course not found');
       }
+      
+      const amount = course.price;
+      const sessionId = userId.toString();
+      const returnUrl = `${process.env.WEBPAY_RETURN_URL}?purchaseId=${id}`;
+      const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
+      const response = await transaction.create(
+        buyOrder,
+        sessionId,
+        amount,
+        returnUrl,
+      );
+      return response;
+      
     } catch (error) {
       console.error('Error creating transaction:', error);
       throw error;
@@ -165,23 +169,27 @@ export class PurchaseController {
       }
       
       const purchase = await Purchase.findByPk(id);
-      if (purchase) {
-        if (!purchase.isPaid) {
-          const { webPayResponse, transactionStatus } = await this.confirmWebPayTransaction(purchase, token_ws);
-          if (transactionStatus === 'AUTHORIZED') {
-            ctx.status = 200;
-            ctx.body = { purchase, webPayResponse };
-          } else {
-            ctx.status = 400;
-            ctx.body = { error: `Transaction not authorized. Status: ${transactionStatus}` };
-          }
-        } else {
-          ctx.status = 400;
-          ctx.body = { error: 'Purchase already confirmed as paid' };
-        }
-      } else {
+
+      if (!purchase) {
         ctx.status = 404;
         ctx.body = { error: 'Purchase not found' };
+        return;
+      }
+      
+      if (purchase.isPaid) {
+        ctx.status = 400;
+        ctx.body = { error: 'Purchase already confirmed as paid' };
+        return;
+      }
+      
+      const { webPayResponse, transactionStatus } = await this.confirmWebPayTransaction(purchase, token_ws);
+      
+      if (transactionStatus === 'AUTHORIZED') {
+        ctx.status = 200;
+        ctx.body = { purchase, webPayResponse };
+      } else {
+        ctx.status = 400;
+        ctx.body = { error: `Transaction not authorized. Status: ${transactionStatus}` };
       }
     } catch (error) {
       ctx.status = 500;
@@ -195,10 +203,11 @@ export class PurchaseController {
       const response = await transaction.commit(token_ws);
       const transactionStatus = response.status;
 
+
       if (transactionStatus === 'AUTHORIZED') {
         purchase.isPaid = true;
         await purchase.save();
-        await this.updateCourseCapacity(purchase);
+        await this.updateCourseCapacity(purchase.courseId);
         await this.createPaidPurchaseForAllCoreCourses(purchase);
       }
 
@@ -215,12 +224,19 @@ export class PurchaseController {
       const coreCourses = await Course.findAll({ where: { type: CourseType.CORE } });
 
       for (const course of coreCourses) {
+
+        if (!course) {
+          console.error('Core course not found');
+          continue;
+        }
+
         const existingCorePurchase = await Purchase.findOne({
           where: {
             userId,
             courseId: course.id,
           },
         });
+
 
         if (!existingCorePurchase) {
           const corePurchase = {
@@ -232,7 +248,7 @@ export class PurchaseController {
 
           const newPurchase = Purchase.build(corePurchase);
           await newPurchase.save();
-          await this.updateCourseCapacity(newPurchase);
+          await this.updateCourseCapacity(newPurchase.courseId);
         }
       }
 
@@ -242,9 +258,10 @@ export class PurchaseController {
     }
   }
 
-  private async updateCourseCapacity(purchase: Purchase) {
+  private async updateCourseCapacity(courseId: string) {
     try {
-      const course = await Course.findByPk(purchase.courseId);
+      const course = await Course.findByPk(courseId);
+
       if (course && course.capacity > 0) {
         course.capacity -= 1;
         await course.save();
