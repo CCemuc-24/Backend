@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db-ccemuc:
+    container_name: db-ccemuc
+    image: postgres:13
+    volumes:
+      - pgdata_ccemuc:/var/lib/postgresql/data
+    env_file:
+      - ./env/db-ccemuc.env
+    ports:
+      - "5432:5432"
+    networks:
+      - ccemuc-network
+
+  ccemuc-api:
+    container_name: ccemuc-api
+    build:
+      context: ./ccemuc-api
+      dockerfile: docker/Dockerfile.dev
+    platform: linux/amd64
+    environment:
+      NODE_ENV: development
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ccemuc-api/src:/ccemuc-api/src
+      - /usr/src/app/node_modules
+    env_file:
+      - ./env/ccemuc-api.env
+    depends_on:
+      - db-ccemuc
+    networks:
+      - ccemuc-network
+
+networks:
+  ccemuc-network:
+    driver: bridge
+
+volumes:
+  pgdata_ccemuc:
