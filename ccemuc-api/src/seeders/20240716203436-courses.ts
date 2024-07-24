@@ -14,7 +14,8 @@ export = {
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
-        date: new Date('2024-08-01')
+        date: new Date('2024-08-01'),
+        week: 1
       },
       {
         title: "Electivo 1: Inteligencia Artificial Aplicada",
@@ -22,7 +23,8 @@ export = {
         type: CourseType.ELECTIVE,
         price: 50000,
         capacity: 100,
-        date: new Date('2024-08-02')
+        date: new Date('2024-08-02'),
+        week: 1
       },
       {
         title: "Electivo 2: Energías Renovables y Sostenibilidad",
@@ -30,7 +32,8 @@ export = {
         type: CourseType.ELECTIVE,
         price: 50000,
         capacity: 100,
-        date: new Date('2024-08-03')
+        date: new Date('2024-08-03'),
+        week: 1
       },
       {
         title: "Electivo 3: Robótica Avanzada",
@@ -38,7 +41,8 @@ export = {
         type: CourseType.ELECTIVE,
         price: 50000,
         capacity: 100,
-        date: new Date('2024-08-09')
+        date: new Date('2024-08-09'),
+        week: 1
       },
       {
         title: "Electivo 4: Nanotecnología en Ingeniería",
@@ -46,7 +50,8 @@ export = {
         type: CourseType.ELECTIVE,
         price: 50000,
         capacity: 100,
-        date: new Date('2024-08-10')
+        date: new Date('2024-08-10'),
+        week: 2
       },
       {
         title: "Workshop: Diseño de Proyectos Innovadores",
@@ -54,7 +59,8 @@ export = {
         type: CourseType.WORKSHOP,
         price: 30000,
         capacity: 50,
-        date: new Date('2024-08-04')
+        date: new Date('2024-08-04'),
+        week: 2
       },
       {
         title: "Workshop: Liderazgo en Ingeniería",
@@ -62,7 +68,8 @@ export = {
         type: CourseType.WORKSHOP,
         price: 30000,
         capacity: 50,
-        date: new Date('2024-08-11')
+        date: new Date('2024-08-11'),
+        week: 2
       }
     ];
 
