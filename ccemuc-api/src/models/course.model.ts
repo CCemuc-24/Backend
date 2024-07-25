@@ -1,7 +1,7 @@
 import { Table, Column, Model, DataType, PrimaryKey, Default, HasMany, AllowNull } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import { CourseType } from '../enums/course-type.enum';
-import Purchase from './purchase.model';
+import Enrollment from './enrollment.model';
 
 @Table
 export default class Course extends Model {
@@ -60,9 +60,9 @@ export default class Course extends Model {
   })
   features!: string[];
 
-  @HasMany(() => Purchase, {
+  @HasMany(() => Enrollment, {
     onDelete: 'CASCADE',
     hooks: true
   })
-  purchases!: Purchase[];
+  enrollments!: Enrollment[];
 }

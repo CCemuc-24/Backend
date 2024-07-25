@@ -1,9 +1,9 @@
-import { Table, Column, Model, DataType, PrimaryKey, Default, ForeignKey, BelongsTo, Unique, BeforeCreate } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, Default, ForeignKey, BelongsTo, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
-import User from './user.model';
-import Course from './course.model';
 import { createHash } from 'crypto';
-
+import Enrollment from './enrollment.model';
+import User from './user.model';
+import { BeforeCreate } from 'sequelize-typescript';
 @Table
 export default class Purchase extends Model {
   @PrimaryKey
@@ -13,7 +13,6 @@ export default class Purchase extends Model {
   })
   id!: string;
 
-  @Unique('UserCourseUnique')
   @ForeignKey(() => User)
   @Column({
     type: DataType.UUID,
@@ -24,17 +23,9 @@ export default class Purchase extends Model {
   @BelongsTo(() => User)
   user!: User;
 
-  @Unique('UserCourseUnique')
-  @ForeignKey(() => Course)
-  @Column({
-    type: DataType.UUID,
-    allowNull: false,
-  })
-  courseId!: string;
-
   @Column({
     type: DataType.STRING,
-    allowNull: true,
+    allowNull: false,
   })
   buyOrder!: string;
 
@@ -45,20 +36,27 @@ export default class Purchase extends Model {
   })
   isPaid!: boolean;
 
-  @BelongsTo(() => Course)
-  course!: Course;
+  @Column({
+    type: DataType.ARRAY(DataType.UUID),
+    allowNull: false,
+  })
+  coursesIds!: string[];
+
+  @HasMany(() => Enrollment, {
+    onDelete: 'CASCADE',
+    hooks: true,
+  })
+  enrollments!: Enrollment[];
 
   @BeforeCreate
   static generateBuyOrder(instance: Purchase) {
     const randomString = Math.random().toString(36).substring(2, 15);
     const timestamp = Date.now().toString(36);
     const rawBuyOrder = `${timestamp}${randomString}`;
-  
+
     const hash = createHash('sha256').update(rawBuyOrder).digest('hex');
-  
+
     instance.buyOrder = hash.substring(0, 26);
     console.log('Generated buy order:', instance.buyOrder, instance.buyOrder.length);
   }
-
 }
-

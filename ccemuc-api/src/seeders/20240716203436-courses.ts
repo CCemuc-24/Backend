@@ -1,6 +1,6 @@
 import { sequelize } from '../models';
 import Course from '../models/course.model';
-import Purchase from '../models/purchase.model';
+import Purchase from '../models/enrollment.model';
 import { CourseType } from '../enums/course-type.enum';
 import { CourseAttributes } from '../interfaces/course.interfaces';
 
