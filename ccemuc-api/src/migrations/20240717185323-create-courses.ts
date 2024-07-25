@@ -33,14 +33,12 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: false,
       },
-      week: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+      
       features: {
         type: DataTypes.ARRAY(DataTypes.STRING),
         allowNull: true,
       },
+  
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
