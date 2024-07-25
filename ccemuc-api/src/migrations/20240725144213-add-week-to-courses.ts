@@ -4,7 +4,7 @@ module.exports = {
   up: async (queryInterface: QueryInterface) => {
     await queryInterface.addColumn('Courses', 'week', {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     });
   },
 
