@@ -33,10 +33,7 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: false,
       },
-      week: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-      },
+      
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
