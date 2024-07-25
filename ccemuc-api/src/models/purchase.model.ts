@@ -25,7 +25,7 @@ export default class Purchase extends Model {
 
   @Column({
     type: DataType.STRING,
-    allowNull: false,
+    allowNull: true,
   })
   buyOrder!: string;
 
