@@ -17,10 +17,10 @@ export = {
         date: new Date('2024-08-31'),
         week: 0,
         features: [
-          "Presencial (12 sesiones)",
+          "12 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
-          "Fechas: Sábados 31/08, 07/09 y 14/09",
-          "Horario: 09:00 a 14:00 hrs."
+          "Sábados 31/08, 07/09 y 14/09",
+          "09:00 a 14:00 hrs."
         ],
       },
       {
@@ -32,8 +32,8 @@ export = {
         date: new Date('2024-09-01'),
         week: 0,
         features: [
-          "On-line, asincrónico (5 clases)",
-          "Las clases estarán disponibles a través de una plataforma."
+          "5 clases on-line, asincrónico",
+          "Clases disponibles en plataforma."
         ],
       },
       {
@@ -45,10 +45,11 @@ export = {
         date: new Date('2024-09-02'),
         week: 1,
         features: [
-          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "9 sesiones on-line sincrónicas",
+          "2 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
-          "Fechas: lunes 02/09, martes 03/09, miércoles 04/09 y sábado 07/09",
-          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+          "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         ],
       },
       {
@@ -60,10 +61,11 @@ export = {
         date: new Date('2024-09-02'),
         week: 1,
         features: [
-          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "9 sesiones on-line sincrónicas",
+          "2 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
-          "Fechas: lunes 02/09, martes 03/09, miércoles 04/09 y sábado 07/09",
-          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+          "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         ],
       },
       {
@@ -75,10 +77,11 @@ export = {
         date: new Date('2024-09-09'),
         week: 2,
         features: [
-          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "9 sesiones on-line sincrónicas",
+          "2 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
-          "Fechas: lunes 09/09, martes 10/09, miércoles 11/09 y sábado 14/09",
-          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+          "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         ],
       },
       {
@@ -90,10 +93,11 @@ export = {
         date: new Date('2024-09-09'),
         week: 2,
         features: [
-          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "9 sesiones on-line sincrónicas",
+          "2 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
-          "Fechas: lunes 09/09, martes 10/09, miércoles 11/09 y sábado 14/09",
-          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+          "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         ],
       }
     ];
