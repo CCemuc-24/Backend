@@ -1,4 +1,4 @@
-import { Table, Column, Model, DataType, PrimaryKey, Default, HasMany } from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, Default, HasMany, AllowNull } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
 import { CourseType } from '../enums/course-type.enum';
 import Purchase from './purchase.model';
@@ -47,6 +47,18 @@ export default class Course extends Model {
     allowNull: false,
   })
   date!: Date;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  week!: number
+
+  @Column({
+    type: DataType.ARRAY(DataType.STRING),
+    allowNull: true,
+  })
+  features!: string[];
 
   @HasMany(() => Purchase, {
     onDelete: 'CASCADE',

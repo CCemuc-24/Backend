@@ -8,4 +8,6 @@ export interface CourseAttributes {
   price: number;
   capacity: number;
   date: Date;
+  week: number;
+  features?: string[];
 }
