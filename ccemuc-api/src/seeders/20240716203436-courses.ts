@@ -9,67 +9,92 @@ export = {
     await sequelize.sync();
     const courses: Omit<CourseAttributes, 'id'>[] = [
       {
-        title: "Módulo Transversal",
+        title: "Módulo 1: Cirugía General",
         description: "Curso obligatorio para todos los asistentes. Cubre conceptos fundamentales aplicables a todas las áreas.",
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
-        date: new Date('2024-08-01'),
-        week: 1
+        date: new Date('2024-08-31'),
+        week: 0,
+        features: [
+          "Presencial (12 sesiones)",
+          "Campus Casa Central. Auditorio por definir.",
+          "Fechas: Sábados 31/08, 07/09 y 14/09",
+          "Horario: 09:00 a 14:00 hrs."
+        ],
       },
       {
-        title: "Electivo 1: Inteligencia Artificial Aplicada",
-        description: "Exploración práctica de IA en diversos campos de ingeniería.",
+        title: "Módulo 6: Anestesiología",
+        description: "Curso sobre técnicas y manejo en anestesiología.",
+        type: CourseType.CORE,
+        price: 0,
+        capacity: 1000,
+        date: new Date('2024-09-01'),
+        week: 0,
+        features: [
+          "On-line, asincrónico (5 clases)",
+          "Las clases estarán disponibles a través de una plataforma."
+        ],
+      },
+      {
+        title: "Módulo 2: Cirugía Digestiva",
+        description: "Curso avanzado en técnicas de cirugía digestiva.",
         type: CourseType.ELECTIVE,
-        price: 50000,
+        price: 10000,
         capacity: 100,
-        date: new Date('2024-08-02'),
-        week: 1
+        date: new Date('2024-09-02'),
+        week: 1,
+        features: [
+          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "Campus Casa Central. Auditorio por definir.",
+          "Fechas: lunes 02/09, martes 03/09, miércoles 04/09 y sábado 07/09",
+          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+        ],
       },
       {
-        title: "Electivo 2: Energías Renovables y Sostenibilidad",
-        description: "Estudio de tecnologías y prácticas para un futuro sostenible.",
-        type: CourseType.ELECTIVE,
-        price: 50000,
+        title: "Módulo 3: Cirugía de Trauma y Urología",
+        description: "Curso sobre técnicas en cirugía de trauma y urología.",
+        type: CourseType.CORE,
+        price: 10000,
         capacity: 100,
-        date: new Date('2024-08-03'),
-        week: 1
+        date: new Date('2024-09-02'),
+        week: 1,
+        features: [
+          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "Campus Casa Central. Auditorio por definir.",
+          "Fechas: lunes 02/09, martes 03/09, miércoles 04/09 y sábado 07/09",
+          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+        ],
       },
       {
-        title: "Electivo 3: Robótica Avanzada",
-        description: "Diseño y programación de sistemas robóticos complejos.",
-        type: CourseType.ELECTIVE,
-        price: 50000,
+        title: "Módulo 4: Cirugía Plástica y Cirugía Oncológica",
+        description: "Curso sobre técnicas en cirugía plástica y oncológica.",
+        type: CourseType.CORE,
+        price: 10000,
         capacity: 100,
-        date: new Date('2024-08-09'),
-        week: 1
+        date: new Date('2024-09-09'),
+        week: 2,
+        features: [
+          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "Campus Casa Central. Auditorio por definir.",
+          "Fechas: lunes 09/09, martes 10/09, miércoles 11/09 y sábado 14/09",
+          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+        ],
       },
       {
-        title: "Electivo 4: Nanotecnología en Ingeniería",
-        description: "Aplicaciones de la nanotecnología en diversos campos de la ingeniería.",
-        type: CourseType.ELECTIVE,
-        price: 50000,
+        title: "Módulo 5: Cirugía de Tórax, Cardíaca y Vascular",
+        description: "Curso sobre técnicas en cirugía de tórax, cardíaca y vascular.",
+        type: CourseType.CORE,
+        price: 10000,
         capacity: 100,
-        date: new Date('2024-08-10'),
-        week: 2
-      },
-      {
-        title: "Workshop: Diseño de Proyectos Innovadores",
-        description: "Taller práctico para desarrollar habilidades en diseño de proyectos de ingeniería innovadores.",
-        type: CourseType.WORKSHOP,
-        price: 30000,
-        capacity: 50,
-        date: new Date('2024-08-04'),
-        week: 2
-      },
-      {
-        title: "Workshop: Liderazgo en Ingeniería",
-        description: "Desarrollo de habilidades de liderazgo esenciales para ingenieros.",
-        type: CourseType.WORKSHOP,
-        price: 30000,
-        capacity: 50,
-        date: new Date('2024-08-11'),
-        week: 2
+        date: new Date('2024-09-09'),
+        week: 2,
+        features: [
+          "On-line sincrónicas a través de la plataforma Zoom (9 sesiones) y presencial (2 sesiones)",
+          "Campus Casa Central. Auditorio por definir.",
+          "Fechas: lunes 09/09, martes 10/09, miércoles 11/09 y sábado 14/09",
+          "Horario: lunes, martes, miércoles de 18:30 a 20:45 hrs. Sábado de 12:20 a 13:50 hrs."
+        ],
       }
     ];
 
