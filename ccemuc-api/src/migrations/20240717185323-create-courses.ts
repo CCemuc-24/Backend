@@ -33,11 +33,6 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: false,
       },
-      
-      features: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        allowNull: true,
-      },
   
       createdAt: {
         type: DataTypes.DATE,
