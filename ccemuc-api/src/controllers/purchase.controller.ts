@@ -301,7 +301,6 @@ export class PurchaseController {
           where: {
             userId,
             courseId,
-            purchaseId: purchase.id,
           },
         });
   
