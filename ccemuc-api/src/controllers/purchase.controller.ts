@@ -6,8 +6,8 @@ import { CourseType } from '../enums/course-type.enum';
 import { ValidationError } from 'sequelize';
 import { WebpayPlus } from 'transbank-sdk';
 import { Options, IntegrationApiKeys, Environment, IntegrationCommerceCodes } from 'transbank-sdk';
-import { get } from 'http';
 import Enrollment from '../models/enrollment.model';
+import User from '../models/user.model';
 
 export class PurchaseController {
   constructor() {
@@ -24,6 +24,7 @@ export class PurchaseController {
     this.changeIsPaidToTrue = this.changeIsPaidToTrue.bind(this);
     this.createEnrollments = this.createEnrollments.bind(this);
     this.updateCourseCapacity = this.updateCourseCapacity.bind(this);
+    this.getUserPurchase = this.getUserPurchase.bind(this);
   }
 
   async create(ctx: Context) {
@@ -135,7 +136,6 @@ export class PurchaseController {
     }
   }
   
-
   async getAll(ctx: Context) {
     try {
       const purchases = await Purchase.findAll();
@@ -212,7 +212,6 @@ export class PurchaseController {
       ctx.body = { error: (error as Error).message };
     }
   }
-
 
   async confirm(ctx: Context) {
     try {
@@ -335,6 +334,24 @@ export class PurchaseController {
     } catch (error) {
       console.error('Error updating course capacity:', error);
       throw error;
+    }
+  }
+
+  async getUserPurchase(ctx: Context) {
+    try {
+      const { userId } = ctx.params;
+      const user = await User.findByPk(userId);
+      if (!user) {
+        ctx.status = 404;
+        ctx.body = { error: 'User not found' };
+        return;
+      }
+      const purchases = await Purchase.findAll({ where: { userId } });
+      ctx.status = 200;
+      ctx.body = purchases;
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = { error: (error as Error).message };
     }
   }
 }
