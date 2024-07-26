@@ -1,9 +1,9 @@
 import { Context, Next } from 'koa';
 
-export async function authMiddleware(ctx: Context, next: Next) {
+export async function deleteAuthMiddleware(ctx: Context, next: Next) {
   const token = ctx.headers['authorization']?.replace('Bearer ', '');
 
-  if (!token || token !== process.env.AUTH_TOKEN) {
+  if (!token || token !== process.env.DELETE_AUTH_TOKEN) {
     ctx.status = 403;
     ctx.body = { error: 'Unauthorized' };
     return;

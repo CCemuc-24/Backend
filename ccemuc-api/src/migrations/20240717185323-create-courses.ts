@@ -33,6 +33,7 @@ module.exports = {
         type: DataTypes.DATE,
         allowNull: false,
       },
+  
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,

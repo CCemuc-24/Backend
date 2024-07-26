@@ -6,6 +6,8 @@ import { CourseType } from '../enums/course-type.enum';
 import { ValidationError } from 'sequelize';
 import { WebpayPlus } from 'transbank-sdk';
 import { Options, IntegrationApiKeys, Environment, IntegrationCommerceCodes } from 'transbank-sdk';
+import Enrollment from '../models/enrollment.model';
+import User from '../models/user.model';
 
 export class PurchaseController {
   constructor() {
@@ -15,89 +17,125 @@ export class PurchaseController {
     this.update = this.update.bind(this);
     this.delete = this.delete.bind(this);
     this.confirm = this.confirm.bind(this);
-    this.createPaidPurchaseForAllCoreCourses = this.createPaidPurchaseForAllCoreCourses.bind(this);
     this.statusToken = this.statusToken.bind(this);
+    this.confirmWebPayToken = this.confirmWebPayToken.bind(this);
+    this.createWebPayTransaction = this.createWebPayTransaction.bind(this);
+    this.calculateTotalAmount = this.calculateTotalAmount.bind(this);
+    this.changeIsPaidToTrue = this.changeIsPaidToTrue.bind(this);
+    this.createEnrollments = this.createEnrollments.bind(this);
+    this.updateCourseCapacity = this.updateCourseCapacity.bind(this);
+    this.getUserPurchase = this.getUserPurchase.bind(this);
   }
 
   async create(ctx: Context) {
     const purchaseData = ctx.request.body as Omit<PurchaseAttributes, 'id'>;
     try {
-      const course = await Course.findByPk(purchaseData.courseId);
-
-      if (!course) {
-        ctx.status = 404;
-        ctx.body = { error: 'Course not found' };
-        return;
-      }
-
-      const purchaseCount = await Purchase.count({
-        where: { courseId: purchaseData.courseId }
-      });
-
-      if (purchaseCount >= course.capacity) {
-        ctx.status = 400;
-        ctx.body = { error: 'Course capacity is full' };
-        return;
-      }
-
-      const existingPurchase = await Purchase.findOne({
-        where: {
-          userId: purchaseData.userId,
-          courseId: purchaseData.courseId,
-        },
-      });
-
-      let purchase;
-      if (existingPurchase) {
-        ctx.status = 200;
-        purchase = existingPurchase;
-      } else {
-        purchase = Purchase.build(purchaseData);
-        await purchase.save();
-      }
-
-      const webPayResponse = await this.createWebPayTransaction(purchase);
+      await this.validatePurchase(purchaseData);
+      const purchase = await this.createOrRetrievePurchase(purchaseData);
+      
+      const response = await this.handleWebPayTransaction(purchase);
+      
       ctx.status = 201;
-      ctx.body = { purchase, webPayResponse }
-
+      ctx.body = response;
     } catch (error) {
-      if (error instanceof ValidationError) {
-        const field = error.errors[0].path;
-        ctx.status = 409;
-        ctx.body = { error: `Error de duplicidad en el campo '${field}'` };
-      } else {
-        ctx.status = 400;
-        ctx.body = { error: (error as Error).message };
-      }
+      this.handleError(ctx, error);
     }
   }
 
-  private async createWebPayTransaction(purchase: Purchase) {
+  private async validatePurchase(purchaseData: Omit<PurchaseAttributes, 'id'>) {
+    const { coursesIds } = purchaseData;
+    await this.ensureAllCoursesExist(coursesIds);
+    await this.ensureAllCoursesHaveCapacity(coursesIds);
+  }
+
+  private async ensureAllCoursesExist(coursesIds: string[]) {
+    const courses = await Course.findAll({ where: { id: coursesIds } });
+    if (courses.length !== coursesIds.length) {
+      throw new Error('One or more courses not found');
+    }
+  }
+
+  private async ensureAllCoursesHaveCapacity(coursesIds: string[]) {
+    const courses = await Course.findAll({ where: { id: coursesIds } });
+    const fullCourses = courses.filter(c => c.capacity <= 0);
+    if (fullCourses.length > 0) {
+      throw new Error('One or more courses are full');
+    }
+  }
+
+  private async createOrRetrievePurchase(purchaseData: Omit<PurchaseAttributes, 'id'>): Promise<Purchase> {
+
+    const existingPurchase = await Purchase.findOne({
+      where: {
+        userId: purchaseData.userId,
+        coursesIds: purchaseData.coursesIds,
+      },
+    });
+
+    if (existingPurchase) {
+      return existingPurchase;
+    } else {
+      const purchase = Purchase.build(purchaseData);
+      await purchase.save();
+      return purchase;
+    }
+  }
+
+  private async handleWebPayTransaction(purchase: Purchase) {
+    if (!purchase.isPaid) {
+      const webPayResponse = await this.createWebPayTransaction(purchase);
+      return { purchase, webPayResponse };
+    }
+    return { purchase };
+  }
+
+  private async createWebPayTransaction(purchases: Purchase) {
     try {
-      const { id, userId, courseId, buyOrder } = purchase;
-      const course = await Course.findByPk(courseId);
-      if (!course) {
-        throw new Error('Course not found');
-      }
-      
-      const amount = course.price;
-      const sessionId = userId.toString();
-      const returnUrl = `${process.env.WEBPAY_RETURN_URL}?purchaseId=${id}`;
-      const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
-      const response = await transaction.create(
-        buyOrder,
-        sessionId,
-        amount,
-        returnUrl,
+
+      const totalAmount = await this.calculateTotalAmount(purchases.coursesIds);
+
+      const buyOrder = purchases.buyOrder;
+      const sessionId = purchases.userId;
+      const returnUrl = `${process.env.WEBPAY_RETURN_URL}?purchaseId=${purchases.id}`;
+
+      const transaction = new WebpayPlus.Transaction(
+        new Options(
+          IntegrationCommerceCodes.WEBPAY_PLUS,
+          IntegrationApiKeys.WEBPAY,
+          Environment.Integration
+        )
       );
+      const response = await transaction.create(buyOrder, sessionId, totalAmount, returnUrl);
       return response;
-      
     } catch (error) {
       console.error('Error creating transaction:', error);
       throw error;
     }
   }
 
+  private async calculateTotalAmount(coursesIds: string[]): Promise<number> {
+    let totalAmount = 0;
+    for (const courseId of coursesIds) {
+      const course = await Course.findByPk(courseId);
+      if (course) {
+        totalAmount += course.price;
+      }
+    }
+    return totalAmount;
+  }
+
+  private handleError(ctx: Context, error: unknown) {
+    if (error instanceof ValidationError) {
+      const field = error.errors[0].path;
+      console.log('Error', error);
+      ctx.status = 409;
+      ctx.body = { error: (error as Error).message, field };
+    } else {
+      ctx.status = 400;
+      ctx.body = { error: (error as Error).message };
+    }
+  }
+  
   async getAll(ctx: Context) {
     try {
       const purchases = await Purchase.findAll();
@@ -175,7 +213,6 @@ export class PurchaseController {
     }
   }
 
-
   async confirm(ctx: Context) {
     try {
       const { id } = ctx.params;
@@ -214,8 +251,8 @@ export class PurchaseController {
       console.log(transactionStatus.status);
       
       if (transactionStatus.status === 'AUTHORIZED') {
-        await this.confirmPurchase(purchase);
-        await this.createPaidPurchaseForAllCoreCourses(purchase);
+        await this.changeIsPaidToTrue(purchase);
+        await this.createEnrollments(purchase);
         ctx.status = 200;
         ctx.body = { purchase, transactionStatus };
       } else {
@@ -238,53 +275,50 @@ export class PurchaseController {
     }
   }
 
-  private async confirmPurchase(purchase: Purchase) {
+  private async changeIsPaidToTrue(purchase: Purchase) {
     try {
       purchase.isPaid = true;
       await purchase.save();
-      await this.updateCourseCapacity(purchase.courseId);
     } catch (error) {
       console.error('Error confirmando la compra:', error);
       throw error;
     }
   }
 
-  private async createPaidPurchaseForAllCoreCourses(purchase: Purchase) {
+  private async createEnrollments(purchase: Purchase) {
     try {
-      const { userId, buyOrder } = purchase;
+      const { userId, coursesIds } = purchase;
+  
       const coreCourses = await Course.findAll({ where: { type: CourseType.CORE } });
-
-      for (const course of coreCourses) {
-
-        if (!course) {
-          console.error('Core course not found');
-          continue;
-        }
-
-        const existingCorePurchase = await Purchase.findOne({
+  
+      const coreCoursesIds = coreCourses.map(course => course.id);
+  
+      const allCoursesIds = [...coreCoursesIds, ...coursesIds];
+  
+      for (const courseId of allCoursesIds) {
+        const existingEnrollment = await Enrollment.findOne({
           where: {
             userId,
-            courseId: course.id,
+            courseId,
           },
         });
-
-
-        if (!existingCorePurchase) {
-          const corePurchase = {
+  
+        if (!existingEnrollment) {
+          const enrollment = {
             userId,
-            courseId: course.id,
-            buyOrder,
-            isPaid: true,
+            courseId,
+            purchaseId: purchase.id,
           };
-
-          const newPurchase = Purchase.build(corePurchase);
-          await newPurchase.save();
-          await this.updateCourseCapacity(newPurchase.courseId);
+  
+          const newEnrollment = Enrollment.build(enrollment);
+          await newEnrollment.save();
+          await this.updateCourseCapacity(newEnrollment.courseId);
+        } else {
+          console.log(`Enrollment already exists for userId: ${userId}, courseId: ${courseId}, purchaseId: ${purchase.id}`);
         }
       }
-
     } catch (error) {
-      console.error('Error creating paid purchases for core courses:', error);
+      console.error('Error creando enrollments:', error);
       throw error;
     }
   }
@@ -300,6 +334,24 @@ export class PurchaseController {
     } catch (error) {
       console.error('Error updating course capacity:', error);
       throw error;
+    }
+  }
+
+  async getUserPurchase(ctx: Context) {
+    try {
+      const { userId } = ctx.params;
+      const user = await User.findByPk(userId);
+      if (!user) {
+        ctx.status = 404;
+        ctx.body = { error: 'User not found' };
+        return;
+      }
+      const purchases = await Purchase.findAll({ where: { userId } });
+      ctx.status = 200;
+      ctx.body = purchases;
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = { error: (error as Error).message };
     }
   }
 }
