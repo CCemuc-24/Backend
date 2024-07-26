@@ -13,5 +13,6 @@ router.put('/:id', purchaseController.update);
 router.delete('/:id', deleteAuthMiddleware, purchaseController.delete);
 router.post('/confirm/:id', authMiddleware, purchaseController.confirm);
 router.get('/statusToken/:token', purchaseController.statusToken);
+router.get('/getUserPurchase/:userId', purchaseController.getUserPurchase);
 
 export default router;
