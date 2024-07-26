@@ -55,7 +55,7 @@ export = {
       {
         title: "Módulo 3: Cirugía de Trauma y Urología",
         description: "Curso sobre técnicas en cirugía de trauma y urología.",
-        type: CourseType.CORE,
+        type: CourseType.ELECTIVE,
         price: 10000,
         capacity: 100,
         date: new Date('2024-09-02'),
@@ -71,7 +71,7 @@ export = {
       {
         title: "Módulo 4: Cirugía Plástica y Cirugía Oncológica",
         description: "Curso sobre técnicas en cirugía plástica y oncológica.",
-        type: CourseType.CORE,
+        type: CourseType.ELECTIVE,
         price: 10000,
         capacity: 100,
         date: new Date('2024-09-09'),
@@ -87,7 +87,7 @@ export = {
       {
         title: "Módulo 5: Cirugía de Tórax, Cardíaca y Vascular",
         description: "Curso sobre técnicas en cirugía de tórax, cardíaca y vascular.",
-        type: CourseType.CORE,
+        type: CourseType.ELECTIVE,
         price: 10000,
         capacity: 100,
         date: new Date('2024-09-09'),

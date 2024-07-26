@@ -61,7 +61,7 @@ export class EnrollmentController {
   async update(ctx: Context) {
     try {
       const { id } = ctx.params;
-      const enrollmentData = ctx.request.body as Omit<EnrollmentAttributes, 'id'>; // Excluir el id en la actualización
+      const enrollmentData = ctx.request.body as Omit<EnrollmentAttributes, 'id'>;
       const [updated] = await Enrollment.update(enrollmentData, { where: { id } });
       if (updated) {
         const updatedEnrollment = await Enrollment.findByPk(id);

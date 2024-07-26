@@ -29,26 +29,22 @@ export class PurchaseController {
   async create(ctx: Context) {
     const purchaseData = ctx.request.body as Omit<PurchaseAttributes, 'id'>;
     try {
-      const coursesIds = purchaseData.coursesIds;
-      await this.ensureAllCoursesExist(coursesIds);
-      await this.ensureAllCoursesHaveCapacity(coursesIds);
-
+      await this.validatePurchase(purchaseData);
       const purchase = await this.createOrRetrievePurchase(purchaseData);
-
-      const webPayResponse = await this.createWebPayTransaction(purchase);
+      
+      const response = await this.handleWebPayTransaction(purchase);
+      
       ctx.status = 201;
-      ctx.body = { purchase, webPayResponse };
+      ctx.body = response;
     } catch (error) {
-      if (error instanceof ValidationError) {
-        const field = error.errors[0].path;
-        console.log('Error', error);
-        ctx.status = 409;
-        ctx.body = { error: (error as Error).message, field };
-      } else {
-        ctx.status = 400;
-        ctx.body = { error: (error as Error).message };
-      }
+      this.handleError(ctx, error);
     }
+  }
+
+  private async validatePurchase(purchaseData: Omit<PurchaseAttributes, 'id'>) {
+    const { coursesIds } = purchaseData;
+    await this.ensureAllCoursesExist(coursesIds);
+    await this.ensureAllCoursesHaveCapacity(coursesIds);
   }
 
   private async ensureAllCoursesExist(coursesIds: string[]) {
@@ -84,6 +80,14 @@ export class PurchaseController {
     }
   }
 
+  private async handleWebPayTransaction(purchase: Purchase) {
+    if (!purchase.isPaid) {
+      const webPayResponse = await this.createWebPayTransaction(purchase);
+      return { purchase, webPayResponse };
+    }
+    return { purchase };
+  }
+
   private async createWebPayTransaction(purchases: Purchase) {
     try {
 
@@ -91,7 +95,7 @@ export class PurchaseController {
 
       const buyOrder = purchases.buyOrder;
       const sessionId = purchases.userId;
-      const returnUrl = `${process.env.WEBPAY_RETURN_URL}?buyOrder=${buyOrder}`;
+      const returnUrl = `${process.env.WEBPAY_RETURN_URL}?purchaseId=${purchases.id}`;
 
       const transaction = new WebpayPlus.Transaction(
         new Options(
@@ -117,6 +121,18 @@ export class PurchaseController {
       }
     }
     return totalAmount;
+  }
+
+  private handleError(ctx: Context, error: unknown) {
+    if (error instanceof ValidationError) {
+      const field = error.errors[0].path;
+      console.log('Error', error);
+      ctx.status = 409;
+      ctx.body = { error: (error as Error).message, field };
+    } else {
+      ctx.status = 400;
+      ctx.body = { error: (error as Error).message };
+    }
   }
   
 
