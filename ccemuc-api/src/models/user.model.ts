@@ -1,7 +1,8 @@
 import { Table, Column, Model, DataType, PrimaryKey, Default, HasMany } from 'sequelize-typescript';
 import { v4 as uuidv4 } from 'uuid';
-import Purchase from './purchase.model';
 import { isRut } from '../utils/rutValidator';
+import Enrollment from './enrollment.model';
+import Purchase from './purchase.model';
 
 @Table
 export default class User extends Model {
@@ -57,6 +58,12 @@ export default class User extends Model {
     allowNull: false,
   })
   carrerYear!: number;
+
+  @HasMany(() => Enrollment, {
+    onDelete: 'CASCADE',
+    hooks: true,
+  })
+  enrollments!: Enrollment[];
 
   @HasMany(() => Purchase, {
     onDelete: 'CASCADE',
