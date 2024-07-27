@@ -89,4 +89,21 @@ export class UserController {
       ctx.body = { error: (error as Error).message };
     }
   }
+
+  async getByRut(ctx: Context) {
+    try {
+      const { rut } = ctx.params;
+      const user = await User.findOne({ where: { rut } });
+      if (user) {
+        ctx.body = user;
+        ctx.status = 200;
+      } else {
+        ctx.status = 404;
+        ctx.body = { error: 'User not found' };
+      }
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = { error: (error as Error).message };
+    }
+  }
 }
