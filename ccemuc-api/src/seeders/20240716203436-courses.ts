@@ -17,7 +17,7 @@ export = {
         date: new Date('2024-08-31'),
         week: 0,
         features: [
-          "12 sesiones presencial",
+          "13 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
           "Sábados 31/08, 07/09 y 14/09",
           "09:00 a 14:00 hrs."
@@ -46,7 +46,7 @@ export = {
         week: 1,
         features: [
           "9 sesiones on-line sincrónicas",
-          "2 sesiones presencial",
+          "3 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
           "L 02/09 - M 03/09 - W 04/09 - S 07/09",
           "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
@@ -62,7 +62,7 @@ export = {
         week: 1,
         features: [
           "9 sesiones on-line sincrónicas",
-          "2 sesiones presencial",
+          "3 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
           "L 02/09 - M 03/09 - W 04/09 - S 07/09",
           "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
@@ -78,7 +78,7 @@ export = {
         week: 2,
         features: [
           "9 sesiones on-line sincrónicas",
-          "2 sesiones presencial",
+          "3 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
           "L 09/09 - M 10/09 - W 11/09 - S 14/09",
           "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
@@ -94,7 +94,7 @@ export = {
         week: 2,
         features: [
           "9 sesiones on-line sincrónicas",
-          "2 sesiones presencial",
+          "3 sesiones presencial",
           "Campus Casa Central. Auditorio por definir.",
           "L 09/09 - M 10/09 - W 11/09 - S 14/09",
           "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
