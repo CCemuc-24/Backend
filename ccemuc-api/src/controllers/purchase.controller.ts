@@ -98,6 +98,8 @@ export class PurchaseController {
       const sessionId = purchases.userId;
       const returnUrl = `${process.env.WEBPAY_RETURN_URL}?purchaseId=${purchases.id}`;
 
+      console.log('URL return', returnUrl)
+
       const transaction = new WebpayPlus.Transaction(
         new Options(
           IntegrationCommerceCodes.WEBPAY_PLUS,
