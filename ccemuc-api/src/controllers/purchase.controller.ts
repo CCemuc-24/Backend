@@ -357,16 +357,28 @@ export class PurchaseController {
     }
   }
 
-  async sendEmail(ctx: Context) {
+  async sendConfirmation(ctx: Context) {
     try {
-      const { purchaseId } = ctx.request.body as { purchaseId: string };
+      const { purchaseId, email, subject, text } = ctx.request.body as { purchaseId: string, email: string, subject: string, text: string };
+
       const purchase = await Purchase.findByPk(purchaseId);
+
       if (!purchase) {
         ctx.status = 404;
         ctx.body = { error: 'Purchase not found' };
         return;
       }
-      const { email, subject, text } = ctx.request.body as { email: string, subject: string, text: string };
+
+      await this.sendEmail(purchaseId, email, subject, text);
+
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = { error: (error as Error).message };
+    }
+  }
+
+  private async sendEmail(purchaseId: string, email: string, subject: string, text: string) {
+    try {
       const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: Number(process.env.EMAIL_PORT),
@@ -385,11 +397,9 @@ export class PurchaseController {
       };
 
       await transporter.sendMail(mailOptions);
-      ctx.status = 200;
-      ctx.body = { message: 'Email sent' };
     } catch (error) {
-      ctx.status = 500;
-      ctx.body = { error: (error as Error).message };
+      console.error('Error sending email:', error);
+      throw error;
     }
   }
 }
