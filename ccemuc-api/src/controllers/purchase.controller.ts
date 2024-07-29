@@ -8,6 +8,7 @@ import { WebpayPlus } from 'transbank-sdk';
 import { Options, IntegrationApiKeys, Environment, IntegrationCommerceCodes } from 'transbank-sdk';
 import Enrollment from '../models/enrollment.model';
 import User from '../models/user.model';
+import nodemailer from 'nodemailer';
 
 export class PurchaseController {
   constructor() {
@@ -32,7 +33,6 @@ export class PurchaseController {
     try {
       await this.validatePurchase(purchaseData);
       const purchase = await this.createOrRetrievePurchase(purchaseData);
-      
       const response = await this.handleWebPayTransaction(purchase);
       
       ctx.status = 201;
@@ -351,6 +351,42 @@ export class PurchaseController {
       const purchases = await Purchase.findAll({ where: { userId } });
       ctx.status = 200;
       ctx.body = purchases;
+    } catch (error) {
+      ctx.status = 500;
+      ctx.body = { error: (error as Error).message };
+    }
+  }
+
+  async sendEmail(ctx: Context) {
+    try {
+      const { purchaseId } = ctx.request.body as { purchaseId: string };
+      const purchase = await Purchase.findByPk(purchaseId);
+      if (!purchase) {
+        ctx.status = 404;
+        ctx.body = { error: 'Purchase not found' };
+        return;
+      }
+      const { email, subject, text } = ctx.request.body as { email: string, subject: string, text: string };
+      const transporter = nodemailer.createTransport({
+        host: process.env.EMAIL_HOST,
+        port: Number(process.env.EMAIL_PORT),
+        secure: true,
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_KEY,
+        },
+      });
+
+      const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: email,
+        subject,
+        text,
+      };
+
+      await transporter.sendMail(mailOptions);
+      ctx.status = 200;
+      ctx.body = { message: 'Email sent' };
     } catch (error) {
       ctx.status = 500;
       ctx.body = { error: (error as Error).message };

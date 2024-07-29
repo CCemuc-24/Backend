@@ -14,5 +14,6 @@ router.delete('/:id', deleteAuthMiddleware, purchaseController.delete);
 router.post('/confirm/:id', authMiddleware, purchaseController.confirm);
 router.get('/statusToken/:token', purchaseController.statusToken);
 router.get('/getUserPurchase/:userId', purchaseController.getUserPurchase);
+router.post('/sendEmail', authMiddleware, purchaseController.sendEmail);
 
 export default router;
