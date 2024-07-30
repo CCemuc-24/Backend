@@ -26,6 +26,7 @@ export class PurchaseController {
     this.createEnrollments = this.createEnrollments.bind(this);
     this.updateCourseCapacity = this.updateCourseCapacity.bind(this);
     this.getUserPurchase = this.getUserPurchase.bind(this);
+    this.sendConfirmation = this.sendConfirmation.bind(this);
   }
 
   async create(ctx: Context) {
@@ -368,33 +369,34 @@ export class PurchaseController {
         ctx.body = { error: 'Purchase not found' };
         return;
       }
-
-      await this.sendEmail(purchaseId, email, subject, text);
-
+      await this.sendEmail(email, subject, text);
+      ctx.status = 200;
+      ctx.body = { message: 'Email sent' };
     } catch (error) {
       ctx.status = 500;
       ctx.body = { error: (error as Error).message };
     }
   }
 
-  private async sendEmail(purchaseId: string, email: string, subject: string, text: string) {
+  private async sendEmail(email: string, subject: string, text: string) {
     try {
       const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: Number(process.env.EMAIL_PORT),
         secure: true,
         auth: {
-          user: process.env.EMAIL_USER,
+          user: process.env.EMAIL_ADMIN,
           pass: process.env.EMAIL_KEY,
         },
       });
 
       const mailOptions = {
-        from: process.env.EMAIL_USER,
+        from: process.env.EMAIL_FROM,
         to: email,
         subject,
-        text,
+        html: text,
       };
+
 
       await transporter.sendMail(mailOptions);
     } catch (error) {
