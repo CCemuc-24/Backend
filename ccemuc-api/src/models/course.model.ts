@@ -19,6 +19,12 @@ export default class Course extends Model {
   title!: string;
 
   @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  module!: number;
+
+  @Column({
     type: DataType.STRING,
     allowNull: false,
   })
@@ -41,12 +47,6 @@ export default class Course extends Model {
     allowNull: false,
   })
   capacity!: number;
-
-  @Column({
-    type: DataType.DATE,
-    allowNull: false,
-  })
-  date!: Date;
 
   @Column({
     type: DataType.INTEGER,

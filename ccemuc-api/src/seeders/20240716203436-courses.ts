@@ -9,12 +9,12 @@ export = {
     await sequelize.sync();
     const courses: Omit<CourseAttributes, 'id'>[] = [
       {
-        title: "Módulo 1: Cirugía General",
+        title: "Módulo: Cirugía General",
+        module: 1,
         description: "Curso obligatorio para todos los asistentes. Cubre conceptos fundamentales aplicables a todas las áreas.",
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
-        date: new Date('2024-08-31'),
         week: 0,
         features: [
           "13 sesiones presencial",
@@ -24,12 +24,12 @@ export = {
         ],
       },
       {
-        title: "Módulo 6: Anestesiología",
+        title: "Módulo: Anestesiología",
+        module: 6,
         description: "Curso sobre técnicas y manejo en anestesiología.",
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
-        date: new Date('2024-09-01'),
         week: 0,
         features: [
           "5 clases on-line, asincrónico",
@@ -37,12 +37,12 @@ export = {
         ],
       },
       {
-        title: "Módulo 2: Cirugía Digestiva",
+        title: "Módulo: Cirugía Digestiva",
+        module: 2,
         description: "Curso avanzado en técnicas de cirugía digestiva.",
         type: CourseType.ELECTIVE,
         price: 10000,
         capacity: 100,
-        date: new Date('2024-09-02'),
         week: 1,
         features: [
           "9 sesiones on-line sincrónicas",
@@ -53,12 +53,12 @@ export = {
         ],
       },
       {
-        title: "Módulo 3: Cirugía de Trauma y Urología",
+        title: "Módulo: Cirugía de Trauma y Urología",
+        module: 3,
         description: "Curso sobre técnicas en cirugía de trauma y urología.",
         type: CourseType.ELECTIVE,
         price: 10000,
         capacity: 100,
-        date: new Date('2024-09-02'),
         week: 1,
         features: [
           "9 sesiones on-line sincrónicas",
@@ -69,12 +69,12 @@ export = {
         ],
       },
       {
-        title: "Módulo 4: Cirugía Plástica y Cirugía Oncológica",
+        title: "Módulo: Cirugía Plástica y Cirugía Oncológica",
+        module: 4,
         description: "Curso sobre técnicas en cirugía plástica y oncológica.",
         type: CourseType.ELECTIVE,
         price: 10000,
         capacity: 100,
-        date: new Date('2024-09-09'),
         week: 2,
         features: [
           "9 sesiones on-line sincrónicas",
@@ -85,12 +85,12 @@ export = {
         ],
       },
       {
-        title: "Módulo 5: Cirugía de Tórax, Cardíaca y Vascular",
+        title: "Módulo: Cirugía de Tórax, Cardíaca y Vascular",
+        module: 5,
         description: "Curso sobre técnicas en cirugía de tórax, cardíaca y vascular.",
         type: CourseType.ELECTIVE,
         price: 10000,
         capacity: 100,
-        date: new Date('2024-09-09'),
         week: 2,
         features: [
           "9 sesiones on-line sincrónicas",
