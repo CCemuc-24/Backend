@@ -9,5 +9,5 @@ export interface CourseAttributes {
   price: number;
   capacity: number;
   week: number;
-  features?: string[];
+  features?: Record<string, string>;
 }

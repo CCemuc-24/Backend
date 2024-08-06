@@ -16,12 +16,12 @@ export = {
         price: 0,
         capacity: 1000,
         week: 0,
-        features: [
-          "13 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "Sábados 31/08, 07/09 y 14/09",
-          "09:00 a 14:00 hrs."
-        ],
+        features: {
+          "Modality": "13 sesiones presencial",
+          "Location": "Campus Casa Central. Auditorio por definir.",
+          "Dates": "Sábados 31/08, 07/09 y 14/09",
+          "Schedule": "09:00 a 14:00 hrs."
+        }
       },
       {
         title: "Módulo: Anestesiología",
@@ -31,10 +31,12 @@ export = {
         price: 0,
         capacity: 1000,
         week: 0,
-        features: [
-          "5 clases on-line, asincrónico",
-          "Clases disponibles en plataforma."
-        ],
+        features: {
+          "Modality": "5 clases on-line, asincrónico",
+          "Location": "Clases disponibles en plataforma.",
+          "Dates": "",
+          "Schedule": ""
+        }
       },
       {
         title: "Módulo: Cirugía Digestiva",
@@ -44,13 +46,12 @@ export = {
         price: 10000,
         capacity: 100,
         week: 1,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 02/09 - M 03/09 - W 04/09 - S 07/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Location": "Campus Casa Central. Auditorio por definir.",
+          "Dates": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
       },
       {
         title: "Módulo: Cirugía de Trauma y Urología",
@@ -60,13 +61,12 @@ export = {
         price: 10000,
         capacity: 100,
         week: 1,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 02/09 - M 03/09 - W 04/09 - S 07/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Location": "Campus Casa Central. Auditorio por definir.",
+          "Dates": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
       },
       {
         title: "Módulo: Cirugía Plástica y Cirugía Oncológica",
@@ -76,13 +76,12 @@ export = {
         price: 10000,
         capacity: 100,
         week: 2,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 09/09 - M 10/09 - W 11/09 - S 14/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Location": "Campus Casa Central. Auditorio por definir.",
+          "Dates": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
       },
       {
         title: "Módulo: Cirugía de Tórax, Cardíaca y Vascular",
@@ -92,13 +91,12 @@ export = {
         price: 10000,
         capacity: 100,
         week: 2,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 09/09 - M 10/09 - W 11/09 - S 14/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Location": "Campus Casa Central. Auditorio por definir.",
+          "Dates": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
       }
     ];
 

@@ -55,10 +55,10 @@ export default class Course extends Model {
   week!: number
 
   @Column({
-    type: DataType.ARRAY(DataType.STRING),
+    type: DataType.JSON,
     allowNull: true,
   })
-  features!: string[];
+  features!: Record<string, string>;
 
   @HasMany(() => Enrollment, {
     onDelete: 'CASCADE',
