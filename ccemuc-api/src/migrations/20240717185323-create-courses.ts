@@ -13,6 +13,10 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      module: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
       description: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -29,11 +33,10 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      date: {
-        type: DataTypes.DATE,
-        allowNull: false,
+      features: {
+        type: DataTypes.JSONB,
+        allowNull: true,
       },
-  
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,

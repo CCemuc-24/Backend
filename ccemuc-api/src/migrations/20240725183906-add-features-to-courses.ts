@@ -3,7 +3,7 @@ import { QueryInterface, DataTypes } from 'sequelize';
 module.exports = {
   up: async (queryInterface: QueryInterface) => {
     await queryInterface.addColumn('Courses', 'features', {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.JSONB,
       allowNull: true,
     });
   },

@@ -49,13 +49,7 @@ export default class Course extends Model {
   capacity!: number;
 
   @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
-  week!: number
-
-  @Column({
-    type: DataType.JSON,
+    type: DataType.JSONB,
     allowNull: true,
   })
   features!: Record<string, string>;

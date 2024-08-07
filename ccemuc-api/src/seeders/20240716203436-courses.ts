@@ -17,10 +17,10 @@ export = {
         capacity: 1000,
         week: 0,
         features: {
-          "Modality": "13 sesiones presencial",
-          "Location": "Campus Casa Central. Auditorio por definir.",
-          "Dates": "Sábados 31/08, 07/09 y 14/09",
-          "Schedule": "09:00 a 14:00 hrs."
+          "Modalidad": "13 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "Sábados 31/08, 07/09 y 14/09",
+          "Horario": "09:00 a 14:00 hrs."
         }
       },
       {
@@ -32,10 +32,10 @@ export = {
         capacity: 1000,
         week: 0,
         features: {
-          "Modality": "5 clases on-line, asincrónico",
-          "Location": "Clases disponibles en plataforma.",
-          "Dates": "",
-          "Schedule": ""
+          "Modalidad": "5 clases on-line, asincrónico",
+          "Lugar": "Clases disponibles en plataforma.",
+          "Fecha": "",
+          "Horario": ""
         }
       },
       {
@@ -47,10 +47,10 @@ export = {
         capacity: 100,
         week: 1,
         features: {
-          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
-          "Location": "Campus Casa Central. Auditorio por definir.",
-          "Dates": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
-          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         }
       },
       {
@@ -62,10 +62,10 @@ export = {
         capacity: 100,
         week: 1,
         features: {
-          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
-          "Location": "Campus Casa Central. Auditorio por definir.",
-          "Dates": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
-          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         }
       },
       {
@@ -77,10 +77,10 @@ export = {
         capacity: 100,
         week: 2,
         features: {
-          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
-          "Location": "Campus Casa Central. Auditorio por definir.",
-          "Dates": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
-          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         }
       },
       {
@@ -92,10 +92,10 @@ export = {
         capacity: 100,
         week: 2,
         features: {
-          "Modality": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
-          "Location": "Campus Casa Central. Auditorio por definir.",
-          "Dates": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
-          "Schedule": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         }
       }
     ];
