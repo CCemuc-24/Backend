@@ -54,6 +54,12 @@ export default class Course extends Model {
   })
   week!: number
 
+  @Column({
+    type: DataType.ARRAY(DataType.STRING),
+    allowNull: true,
+  })
+  topics!: string[];
+
   @HasMany(() => Enrollment, {
     onDelete: 'CASCADE',
     hooks: true

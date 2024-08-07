@@ -20,7 +20,21 @@ export = {
           "Lugar": "Campus Casa Central. Auditorio por definir.",
           "Fecha": "Sábados 31/08, 07/09 y 14/09",
           "Horario": "09:00 a 14:00 hrs."
-        }
+        },
+        topics: [
+          "Innovaciones que Cambiaron el Curso de la Medicina",
+          "Simulación y realidad virtual",
+          "Conceptos generales del Pre y Postoperatorio",
+          "Abdomen Agudo: Innovaciones en el Diagnóstico y Manejo Quirúrgico",
+          "Conceptos Básicos de Laparoscopía para Estudiantes de la Salud",
+          "Mejoras en Trasplante y Donación de Órganos",
+          "El Rol del Protocolo ERAS en la Recuperación Rápida",
+          "Cirugía robótica: avances en el estudio e implementación en Chile",
+          "Cicatrización y materiales de sutura",
+          "Inteligencia artificial en la investigación quirúrgica",
+          "FORO: Toma de decisiones difíciles en pabellón",
+          "FORO: Mujeres en cirugía"
+        ]
       },
       {
         title: "Módulo: Anestesiología",
@@ -32,7 +46,15 @@ export = {
         features: {
           "Modalidad": "5 clases on-line, asincrónico",
           "Lugar": "Clases disponibles en plataforma.",
-        }
+        },
+        topics: [
+          "Riesgos y evaluación preoperatoria",
+          "Urgencias anestésicas",
+          "Monitorización anestésica",
+          "Manejo de la vía aérea",
+          "Mecanismos de la anestesia general"
+        ]
+      
       },
       {
         title: "Módulo: Cirugía Digestiva y Colopractología",
@@ -46,7 +68,21 @@ export = {
           "Lugar": "Campus Casa Central. Auditorio por definir.",
           "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
           "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        }
+        },
+        topics: [
+          "Patología esofágica benigna",
+          "Obesidad y cirugía bariátrica",
+          "Cáncer esófagogástrico",
+          "Patología benigna biliar",
+          "Trasplante hepático",
+          "Ictericia obstructiva de origen maligno",
+          "Urgencias de colon",
+          "Cáncer de colon y recto",
+          "Técnicas básicas en Coloproctología: Hartmann, colectomías y ostomías",
+          "Cirugía Robótica en Coloproctología",
+          "Modelo de perfusión hepática",
+          "FORO: Q&A + CASOS CLÍNICOS"
+        ]
       },
       {
         title: "Módulo: Cirugía de Trauma y Urología",
@@ -60,7 +96,21 @@ export = {
           "Lugar": "Campus Casa Central. Auditorio por definir.",
           "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
           "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        }
+        },
+        topics: [
+          "Manejo general del trauma",
+          "Trauma torácico",
+          "Trauma abdominal",
+          "Cirugía de control de daños",
+          "Trauma Urológico de Vía Urinaria Superior",
+          "Litiasis urinaria",
+          "Hiperplasia Prostática Benigna",
+          "Diagnóstico en Cáncer de próstata",
+          "Urgencias urológicas (tips and tricks)",
+          "Cirugía robótica en Urología",
+          "ERAS en trauma",
+          "FORO:"
+        ]
       },
       {
         title: "Módulo: Cirugía Plástica y Cirugía Oncológica",
@@ -74,7 +124,21 @@ export = {
           "Lugar": "Campus Casa Central. Auditorio por definir.",
           "Fecha": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
           "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        }
+        },
+        topics: [
+          "Patología mamaria benigna y maligna",
+          "Melanoma y sarcomas de partes blandas",
+          "Nódulo tiroideo y cáncer de tiroides",
+          "Cáncer de cabeza y cuello",
+          "Manejo del trauma maxilofacial en la atención de urgencia",
+          "Cicatrización y heridas",
+          "Injertos y Colgajos",
+          "Quemaduras",
+          "Úlceras por presión",
+          "INNOVACIÓN: Por confirmar",
+          "INNOVACIÓN: Por confirmar",
+          "FORO: Casos clínicos y mesa redonda del módulo"
+        ]
       },
       {
         title: "Módulo: Cirugía de Tórax, Cardíaca y Vascular",
@@ -88,7 +152,21 @@ export = {
           "Lugar": "Campus Casa Central. Auditorio por definir.",
           "Fecha": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
           "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        }
+        },
+        topics: [
+          "Nódulo y cáncer pulmonar",
+          "Neumotórax y pleurostomía",
+          "Derrame pleural",
+          "Patología aórtica",
+          "Cirugía Cardiovascular",
+          "Enfermedad tromboembólica",
+          "Pie diabético",
+          "Enfermedad arterial oclusiva",
+          "Abdomen agudo vascular",
+          "Identificación de nódulos pulmonares bajo TAC intraoperatorio",
+          "Innovación en cirugía cardiovascular",
+          "FORO:"
+        ]
       },
       {
         title: "Workshop: Técnicas en cirugía menor",
@@ -117,6 +195,21 @@ export = {
           "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
           "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         }
+      },
+      {
+        title: "Curso de prueba",
+        module: 9,
+        type: CourseType.ELECTIVE,
+        price: 50,
+        capacity: 1000,
+        week: 4,
+        features: {
+          "Modalidad": "13 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "Sábados 31/08, 07/09 y 14/09",
+          "Horario": "09:00 a 14:00 hrs."
+        },
+        topics: []
       }
     ];
 

@@ -9,4 +9,5 @@ export interface CourseAttributes {
   capacity: number;
   week: number;
   features?: Record<string, string>;
+  topics?: string[];
 }

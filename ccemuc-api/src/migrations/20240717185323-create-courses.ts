@@ -37,6 +37,10 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      topics: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true,
+      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,
