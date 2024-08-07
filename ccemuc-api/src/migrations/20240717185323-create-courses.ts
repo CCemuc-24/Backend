@@ -17,10 +17,6 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      description: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
       type: {
         type: DataTypes.ENUM(...Object.values(CourseType)),
         allowNull: false,
@@ -36,6 +32,10 @@ module.exports = {
       features: {
         type: DataTypes.JSONB,
         allowNull: true,
+      },
+      week: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
       createdAt: {
         type: DataTypes.DATE,

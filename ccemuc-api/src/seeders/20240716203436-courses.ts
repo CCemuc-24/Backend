@@ -11,7 +11,6 @@ export = {
       {
         title: "Módulo: Cirugía General",
         module: 1,
-        description: "Curso obligatorio para todos los asistentes. Cubre conceptos fundamentales aplicables a todas las áreas.",
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
@@ -26,7 +25,6 @@ export = {
       {
         title: "Módulo: Anestesiología",
         module: 6,
-        description: "Curso sobre técnicas y manejo en anestesiología.",
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
@@ -34,16 +32,13 @@ export = {
         features: {
           "Modalidad": "5 clases on-line, asincrónico",
           "Lugar": "Clases disponibles en plataforma.",
-          "Fecha": "",
-          "Horario": ""
         }
       },
       {
-        title: "Módulo: Cirugía Digestiva",
+        title: "Módulo: Cirugía Digestiva y Colopractología",
         module: 2,
-        description: "Curso avanzado en técnicas de cirugía digestiva.",
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 25500,
         capacity: 100,
         week: 1,
         features: {
@@ -56,9 +51,8 @@ export = {
       {
         title: "Módulo: Cirugía de Trauma y Urología",
         module: 3,
-        description: "Curso sobre técnicas en cirugía de trauma y urología.",
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 25500,
         capacity: 100,
         week: 1,
         features: {
@@ -71,9 +65,8 @@ export = {
       {
         title: "Módulo: Cirugía Plástica y Cirugía Oncológica",
         module: 4,
-        description: "Curso sobre técnicas en cirugía plástica y oncológica.",
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 0,
         capacity: 100,
         week: 2,
         features: {
@@ -86,15 +79,42 @@ export = {
       {
         title: "Módulo: Cirugía de Tórax, Cardíaca y Vascular",
         module: 5,
-        description: "Curso sobre técnicas en cirugía de tórax, cardíaca y vascular.",
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 0,
         capacity: 100,
         week: 2,
         features: {
           "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
           "Lugar": "Campus Casa Central. Auditorio por definir.",
           "Fecha": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
+      },
+      {
+        title: "Workshop: Técnicas en cirugía menor",
+        module: 7,
+        type: CourseType.WORKSHOP,
+        price: 3000,
+        capacity: 100,
+        week: 3,
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
+      },
+      {
+        title: "Workshop: Ultrasonido Clínico de urgencia",
+        module: 8,
+        type: CourseType.WORKSHOP,
+        price: 3000,
+        capacity: 100,
+        week: 3,
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
           "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         }
       }

@@ -25,12 +25,6 @@ export default class Course extends Model {
   module!: number;
 
   @Column({
-    type: DataType.STRING,
-    allowNull: false,
-  })
-  description!: string;
-
-  @Column({
     type: DataType.ENUM(...Object.values(CourseType)),
     allowNull: false,
   })
@@ -53,6 +47,12 @@ export default class Course extends Model {
     allowNull: true,
   })
   features!: Record<string, string>;
+
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  week!: number
 
   @HasMany(() => Enrollment, {
     onDelete: 'CASCADE',
