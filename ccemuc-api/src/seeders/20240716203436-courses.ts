@@ -60,7 +60,7 @@ export = {
         title: "Módulo: Cirugía Digestiva y Colopractología",
         module: 2,
         type: CourseType.ELECTIVE,
-        price: 25500,
+        price: 25900,
         capacity: 100,
         week: 1,
         features: {
@@ -78,17 +78,14 @@ export = {
           "Ictericia obstructiva de origen maligno",
           "Urgencias de colon",
           "Cáncer de colon y recto",
-          "Técnicas básicas en Coloproctología: Hartmann, colectomías y ostomías",
-          "Cirugía Robótica en Coloproctología",
-          "Modelo de perfusión hepática",
-          "FORO: Q&A + CASOS CLÍNICOS"
+          "Técnicas básicas en Coloproctología: Hartmann, colectomías y ostomías"
         ]
       },
       {
         title: "Módulo: Cirugía de Trauma y Urología",
         module: 3,
         type: CourseType.ELECTIVE,
-        price: 25500,
+        price: 25900,
         capacity: 100,
         week: 1,
         features: {
@@ -98,7 +95,7 @@ export = {
           "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
         },
         topics: [
-          "Manejo general del trauma",
+          "Principales errores en la evaluación primaria de trauma",
           "Trauma torácico",
           "Trauma abdominal",
           "Cirugía de control de daños",
@@ -106,10 +103,7 @@ export = {
           "Litiasis urinaria",
           "Hiperplasia Prostática Benigna",
           "Diagnóstico en Cáncer de próstata",
-          "Urgencias urológicas (tips and tricks)",
-          "Cirugía robótica en Urología",
-          "ERAS en trauma",
-          "FORO:"
+          "Urgencias urológicas (tips and tricks)"
         ]
       },
       {
@@ -134,10 +128,7 @@ export = {
           "Cicatrización y heridas",
           "Injertos y Colgajos",
           "Quemaduras",
-          "Úlceras por presión",
-          "INNOVACIÓN: Por confirmar",
-          "INNOVACIÓN: Por confirmar",
-          "FORO: Casos clínicos y mesa redonda del módulo"
+          "Úlceras por presión"
         ]
       },
       {
@@ -162,10 +153,7 @@ export = {
           "Enfermedad tromboembólica",
           "Pie diabético",
           "Enfermedad arterial oclusiva",
-          "Abdomen agudo vascular",
-          "Identificación de nódulos pulmonares bajo TAC intraoperatorio",
-          "Innovación en cirugía cardiovascular",
-          "FORO:"
+          "Abdomen agudo vascular"
         ]
       },
       {
@@ -187,7 +175,7 @@ export = {
         module: 8,
         type: CourseType.WORKSHOP,
         price: 3000,
-        capacity: 100,
+        capacity: 60,
         week: 3,
         features: {
           "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",

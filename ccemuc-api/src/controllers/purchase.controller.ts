@@ -27,6 +27,8 @@ export class PurchaseController {
     this.updateCourseCapacity = this.updateCourseCapacity.bind(this);
     this.getUserPurchase = this.getUserPurchase.bind(this);
     this.sendConfirmation = this.sendConfirmation.bind(this);
+
+    WebpayPlus.configureForProduction(process.env.COMMERCE_CODE || '', process.env.API_KEY_TB || '');
   }
 
   async create(ctx: Context) {
@@ -103,9 +105,9 @@ export class PurchaseController {
 
       const transaction = new WebpayPlus.Transaction(
         new Options(
-          IntegrationCommerceCodes.WEBPAY_PLUS,
-          IntegrationApiKeys.WEBPAY,
-          Environment.Integration
+          process.env.COMMERCE_CODE || '', 
+          process.env.API_KEY_TB || '',
+          Environment.Production
         )
       );
       const response = await transaction.create(buyOrder, sessionId, totalAmount, returnUrl);
@@ -270,7 +272,7 @@ export class PurchaseController {
 
   async confirmWebPayToken(token_ws: string) {
     try {
-      const transaction = new WebpayPlus.Transaction(new Options(IntegrationCommerceCodes.WEBPAY_PLUS, IntegrationApiKeys.WEBPAY, Environment.Integration));
+      const transaction = new WebpayPlus.Transaction(new Options(process.env.COMMERCE_CODE || '', process.env.API_KEY_TB || '', Environment.Production));
       const response = await transaction.commit(token_ws);
       return response;
     } catch (error) {
