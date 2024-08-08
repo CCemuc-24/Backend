@@ -13,8 +13,8 @@ module.exports = {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      description: {
-        type: DataTypes.STRING,
+      module: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
       type: {
@@ -29,11 +29,18 @@ module.exports = {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      date: {
-        type: DataTypes.DATE,
+      features: {
+        type: DataTypes.JSONB,
+        allowNull: true,
+      },
+      week: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
-  
+      topics: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        allowNull: true,
+      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,

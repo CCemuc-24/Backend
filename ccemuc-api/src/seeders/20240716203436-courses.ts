@@ -9,96 +9,207 @@ export = {
     await sequelize.sync();
     const courses: Omit<CourseAttributes, 'id'>[] = [
       {
-        title: "Módulo 1: Cirugía General",
-        description: "Curso obligatorio para todos los asistentes. Cubre conceptos fundamentales aplicables a todas las áreas.",
+        title: "Módulo: Cirugía General",
+        module: 1,
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
-        date: new Date('2024-08-31'),
         week: 0,
-        features: [
-          "13 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "Sábados 31/08, 07/09 y 14/09",
-          "09:00 a 14:00 hrs."
-        ],
+        features: {
+          "Modalidad": "13 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "Sábados 31/08, 07/09 y 14/09",
+          "Horario": "09:00 a 14:00 hrs."
+        },
+        topics: [
+          "Innovaciones que Cambiaron el Curso de la Medicina",
+          "Simulación y realidad virtual",
+          "Conceptos generales del Pre y Postoperatorio",
+          "Abdomen Agudo: Innovaciones en el Diagnóstico y Manejo Quirúrgico",
+          "Conceptos Básicos de Laparoscopía para Estudiantes de la Salud",
+          "Mejoras en Trasplante y Donación de Órganos",
+          "El Rol del Protocolo ERAS en la Recuperación Rápida",
+          "Cirugía robótica: avances en el estudio e implementación en Chile",
+          "Cicatrización y materiales de sutura",
+          "Inteligencia artificial en la investigación quirúrgica",
+          "FORO: Toma de decisiones difíciles en pabellón",
+          "FORO: Mujeres en cirugía"
+        ]
       },
       {
-        title: "Módulo 6: Anestesiología",
-        description: "Curso sobre técnicas y manejo en anestesiología.",
+        title: "Módulo: Anestesiología",
+        module: 6,
         type: CourseType.CORE,
         price: 0,
         capacity: 1000,
-        date: new Date('2024-09-01'),
         week: 0,
-        features: [
-          "5 clases on-line, asincrónico",
-          "Clases disponibles en plataforma."
-        ],
+        features: {
+          "Modalidad": "5 clases on-line, asincrónico",
+          "Lugar": "Clases disponibles en plataforma.",
+        },
+        topics: [
+          "Riesgos y evaluación preoperatoria",
+          "Urgencias anestésicas",
+          "Monitorización anestésica",
+          "Manejo de la vía aérea",
+          "Mecanismos de la anestesia general"
+        ]
+      
       },
       {
-        title: "Módulo 2: Cirugía Digestiva",
-        description: "Curso avanzado en técnicas de cirugía digestiva.",
+        title: "Módulo: Cirugía Digestiva y Colopractología",
+        module: 2,
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 25500,
         capacity: 100,
-        date: new Date('2024-09-02'),
         week: 1,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 02/09 - M 03/09 - W 04/09 - S 07/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        },
+        topics: [
+          "Patología esofágica benigna",
+          "Obesidad y cirugía bariátrica",
+          "Cáncer esófagogástrico",
+          "Patología benigna biliar",
+          "Trasplante hepático",
+          "Ictericia obstructiva de origen maligno",
+          "Urgencias de colon",
+          "Cáncer de colon y recto",
+          "Técnicas básicas en Coloproctología: Hartmann, colectomías y ostomías",
+          "Cirugía Robótica en Coloproctología",
+          "Modelo de perfusión hepática",
+          "FORO: Q&A + CASOS CLÍNICOS"
+        ]
       },
       {
-        title: "Módulo 3: Cirugía de Trauma y Urología",
-        description: "Curso sobre técnicas en cirugía de trauma y urología.",
+        title: "Módulo: Cirugía de Trauma y Urología",
+        module: 3,
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 25500,
         capacity: 100,
-        date: new Date('2024-09-02'),
         week: 1,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 02/09 - M 03/09 - W 04/09 - S 07/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        },
+        topics: [
+          "Manejo general del trauma",
+          "Trauma torácico",
+          "Trauma abdominal",
+          "Cirugía de control de daños",
+          "Trauma Urológico de Vía Urinaria Superior",
+          "Litiasis urinaria",
+          "Hiperplasia Prostática Benigna",
+          "Diagnóstico en Cáncer de próstata",
+          "Urgencias urológicas (tips and tricks)",
+          "Cirugía robótica en Urología",
+          "ERAS en trauma",
+          "FORO:"
+        ]
       },
       {
-        title: "Módulo 4: Cirugía Plástica y Cirugía Oncológica",
-        description: "Curso sobre técnicas en cirugía plástica y oncológica.",
+        title: "Módulo: Cirugía Plástica y Cirugía Oncológica",
+        module: 4,
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 0,
         capacity: 100,
-        date: new Date('2024-09-09'),
         week: 2,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 09/09 - M 10/09 - W 11/09 - S 14/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        },
+        topics: [
+          "Patología mamaria benigna y maligna",
+          "Melanoma y sarcomas de partes blandas",
+          "Nódulo tiroideo y cáncer de tiroides",
+          "Cáncer de cabeza y cuello",
+          "Manejo del trauma maxilofacial en la atención de urgencia",
+          "Cicatrización y heridas",
+          "Injertos y Colgajos",
+          "Quemaduras",
+          "Úlceras por presión",
+          "INNOVACIÓN: Por confirmar",
+          "INNOVACIÓN: Por confirmar",
+          "FORO: Casos clínicos y mesa redonda del módulo"
+        ]
       },
       {
-        title: "Módulo 5: Cirugía de Tórax, Cardíaca y Vascular",
-        description: "Curso sobre técnicas en cirugía de tórax, cardíaca y vascular.",
+        title: "Módulo: Cirugía de Tórax, Cardíaca y Vascular",
+        module: 5,
         type: CourseType.ELECTIVE,
-        price: 10000,
+        price: 0,
         capacity: 100,
-        date: new Date('2024-09-09'),
         week: 2,
-        features: [
-          "9 sesiones on-line sincrónicas",
-          "3 sesiones presencial",
-          "Campus Casa Central. Auditorio por definir.",
-          "L 09/09 - M 10/09 - W 11/09 - S 14/09",
-          "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
-        ],
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 09/09 - M 10/09 - W 11/09 - S 14/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        },
+        topics: [
+          "Nódulo y cáncer pulmonar",
+          "Neumotórax y pleurostomía",
+          "Derrame pleural",
+          "Patología aórtica",
+          "Cirugía Cardiovascular",
+          "Enfermedad tromboembólica",
+          "Pie diabético",
+          "Enfermedad arterial oclusiva",
+          "Abdomen agudo vascular",
+          "Identificación de nódulos pulmonares bajo TAC intraoperatorio",
+          "Innovación en cirugía cardiovascular",
+          "FORO:"
+        ]
+      },
+      {
+        title: "Workshop: Técnicas en cirugía menor",
+        module: 7,
+        type: CourseType.WORKSHOP,
+        price: 3000,
+        capacity: 100,
+        week: 3,
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
+      },
+      {
+        title: "Workshop: Ultrasonido Clínico de urgencia",
+        module: 8,
+        type: CourseType.WORKSHOP,
+        price: 3000,
+        capacity: 100,
+        week: 3,
+        features: {
+          "Modalidad": "9 sesiones on-line sincrónicas. 3 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "L 02/09 - M 03/09 - W 04/09 - S 07/09",
+          "Horario": "L-M-W de 18:30 a 20:45 hrs. S de 12:20 a 13:50 hrs."
+        }
+      },
+      {
+        title: "Curso de prueba",
+        module: 9,
+        type: CourseType.ELECTIVE,
+        price: 50,
+        capacity: 1000,
+        week: 4,
+        features: {
+          "Modalidad": "13 sesiones presencial",
+          "Lugar": "Campus Casa Central. Auditorio por definir.",
+          "Fecha": "Sábados 31/08, 07/09 y 14/09",
+          "Horario": "09:00 a 14:00 hrs."
+        },
+        topics: []
       }
     ];
 

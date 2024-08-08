@@ -19,10 +19,10 @@ export default class Course extends Model {
   title!: string;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
     allowNull: false,
   })
-  description!: string;
+  module!: number;
 
   @Column({
     type: DataType.ENUM(...Object.values(CourseType)),
@@ -43,10 +43,10 @@ export default class Course extends Model {
   capacity!: number;
 
   @Column({
-    type: DataType.DATE,
-    allowNull: false,
+    type: DataType.JSONB,
+    allowNull: true,
   })
-  date!: Date;
+  features!: Record<string, string>;
 
   @Column({
     type: DataType.INTEGER,
@@ -58,7 +58,7 @@ export default class Course extends Model {
     type: DataType.ARRAY(DataType.STRING),
     allowNull: true,
   })
-  features!: string[];
+  topics!: string[];
 
   @HasMany(() => Enrollment, {
     onDelete: 'CASCADE',

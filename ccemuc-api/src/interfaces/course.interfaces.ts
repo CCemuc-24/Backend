@@ -2,12 +2,12 @@ import { CourseType } from '../enums/course-type.enum';
 
 export interface CourseAttributes {
   id?: string;
+  module: number;
   title: string;
-  description: string;
   type: CourseType;
   price: number;
   capacity: number;
-  date: Date;
   week: number;
-  features?: string[];
+  features?: Record<string, string>;
+  topics?: string[];
 }
