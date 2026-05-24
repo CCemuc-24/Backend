@@ -1,0 +1,114 @@
+id,names,lastNames,rut,email,university,carrerYear,createdAt,updatedAt
+1df46571-5bbd-4341-bcd2-f20938bf7b0d,Rodrigo,Ogalde,20775456-0,rodrigoogalde2001@gmail.com,Pontificia Universidad Católica de Chile,5,2024-08-08 01:31:06.682+00,2024-08-08 01:31:06.682+00
+535c6f95-87c3-4981-afaa-7b64957b7f46,Francisco Silva,Silva,20445770-0,fcosdl@uc.cl,Pontificia Universidad Católica de Chile,7,2024-08-08 01:31:21.365+00,2024-08-08 01:31:21.365+00
+b3b1cc00-f493-44c4-bb6a-975c5c2d3a04,andres anselmo,acosta garay,20729776-3,aacostg@uc.cl,Pontificia Universidad Católica de Chile,6,2024-08-08 01:31:40.045+00,2024-08-08 01:31:40.045+00
+61a4310f-f57a-4b4b-95e4-552366566a60,Raul,Silva Villagrán,20161226-8,raulsilvavillaa@gmail.com,Universidad de Chile,5,2024-08-08 01:37:26.916+00,2024-08-08 01:37:26.916+00
+eb00f415-9629-436a-9c5d-2e55e7f7eb7b,Benjamin ,Figueroa Godoy ,21601097-3,bnjo723@gmail.com,Universidad de Valparaíso San Felipe,1,2024-08-08 01:37:37.821+00,2024-08-08 01:37:37.821+00
+bacb136b-0756-4137-b0f4-db7cc2d508f3,Matias Rodrigo,Martinez Sanchez,19924655-0,matias.martinez2@mail.udp.cl,Universidad Diego Portales,7,2024-08-08 01:37:52.328+00,2024-08-08 01:37:52.328+00
+7bb4b950-9ffd-408a-8d9a-4688db975605,FELIPE IGNACIO,ARUTA CATALÁN,19334616-2,felipearuta@gmail.com,Universidad de Concepción,7,2024-08-08 01:38:14.198+00,2024-08-08 01:38:14.198+00
+fe7acff1-e9e6-40e6-84c6-de538e36ab5d,María José,Mendoza Fuentes,20636905-1,cote-mendoza@hotmail.com,Universidad Mayor Sede Santiago,5,2024-08-08 01:38:15.073+00,2024-08-08 01:38:15.073+00
+cd1d2b49-ce2f-4c3f-a90a-5e03975c7fa8,Sofía Francisca ,Córdova Marchant,20723536-9,socordova20@alumnos.utalca.cl,Universidad de Talca,5,2024-08-08 01:38:17.335+00,2024-08-08 01:38:17.335+00
+2d752017-05b2-4ff8-a308-576b3e25e592,Sebastian Eduardo,Quevedo Umaña,20642883-K,sebastianquevedoumana@gmail.com,Universidad de Santiago de Chile,5,2024-08-08 01:38:20.335+00,2024-08-08 01:38:20.335+00
+24267de3-0057-4ee8-a9d4-979ef85ffe1f,Vicente,Medina Nicolas,19892526-8,vicentemedina9@gmail.com,Universidad Mayor Sede Santiago,6,2024-08-08 01:38:35.157+00,2024-08-08 01:38:35.157+00
+04581eab-af6f-4cf9-aca4-da563b103e31,Fernanda ,Jorquera López,21724298-3,fernanda.jorquera@usach.cl,Universidad de Santiago de Chile,2,2024-08-08 01:38:37.852+00,2024-08-08 01:38:37.852+00
+afbfbe30-7979-41a7-8c22-0e5771d83673,Flavio Luciano Alberto,Castro Cortes,20600205-0,flaviocastrocor@gmail.com,Universidad del Alba Sede La Serena,5,2024-08-08 01:38:49.074+00,2024-08-08 01:38:49.074+00
+5919c779-db29-47ca-b68f-72caf6ea1f65,Alfonso Felipe Bolek,Araneda Jablonski,20172175-K,ajablonski.araneda@gmail.com,Universidad Diego Portales,6,2024-08-08 01:38:59.071+00,2024-08-08 01:38:59.071+00
+d363475c-c033-48b3-85ec-a0c674030979,Osvaldo Andrés ,Herrera Riffo,20019466-7,osvaldo.herrera@mail.udp.cl,Universidad Diego Portales,6,2024-08-08 01:39:09.03+00,2024-08-08 01:39:09.03+00
+4b08c92f-a9e0-4d0d-a9bf-d1b7906305f8,Bayron Axel,Jorquera Gallardo,20542052-5,bayron.jorquera@alumnos.uv.cl,Universidad de Valparaíso San Felipe,6,2024-08-08 01:39:14.71+00,2024-08-08 01:39:14.71+00
+e1663103-8278-4b7c-a019-94a5ebfa4541,Ana Karenina de Lourdes,León Vicencio,20219767-1,anavicencioleon@gmail.com,Universidad Diego Portales,6,2024-08-08 01:39:21.359+00,2024-08-08 01:39:21.359+00
+39f1af96-755e-4909-8e1a-f5f413a8a89b,María Francisca,Rojas Arriagada,20473121-7,mfrojas2@miuandes.cl,Universidad de Los Andes,6,2024-08-08 01:39:25.407+00,2024-08-08 01:39:25.407+00
+d0994fb0-2cba-40c8-aef7-2abe81f56083,Pamela Javiera,Espinoza Vidaurre,18780828-6,pespinozavid.22@gmail.com,Universidad de Talca,5,2024-08-08 01:39:26.782+00,2024-08-08 01:39:26.782+00
+c71e850c-b566-4424-9296-cd1fe2aa3228,Andrea ,Rojas Garay,20664383-8,andrea.rojas.g@usach.cl,Universidad de Santiago de Chile,5,2024-08-08 01:39:40.938+00,2024-08-08 01:39:40.938+00
+db3b399c-ed14-46fe-aa04-783a344d3ba2,Benjamín Candia Moreno,Candia Moreno,19599041-7,benjacandiam@gmail.com,Universidad San Sebastián Sede Concepción,7,2024-08-08 01:39:44.242+00,2024-08-08 01:39:44.242+00
+2550543f-109d-4231-b09b-e6e2a040fb85,Francisca Ignacia,Ollivet Besson Pacheco,19766157-7,franciollivet@gmail.com,Universidad Andrés Bello Sede Santiago,6,2024-08-08 01:39:49.321+00,2024-08-08 01:39:49.321+00
+e8d98bf2-8fad-4808-a0a9-5d9052e044c1,Beltrán Iglesias orfali,Iglesias orfali,20181917-2,beltraniglesias1999@gmail.com,Universidad Andrés Bello Sede Viña del Mar,5,2024-08-08 01:39:55.839+00,2024-08-08 01:39:55.839+00
+dd008484-e542-4407-beb7-5ed67d8d3709,Luna Andrea de Jesús ,Elgueta Maldonado,19837655-8,luna.elgueta@pregrado.uoh.cl,Universidad de O’Higgins,7,2024-08-08 01:40:00.797+00,2024-08-08 01:40:00.797+00
+127c8efd-ac18-438a-9343-258a9303244a,Claudia Michelle ,Camiruaga Paolini,19517094-0,c.cpaolini@gmail.com,Universidad Autónoma de Chile Santiago,7,2024-08-08 01:40:08.611+00,2024-08-08 01:40:08.611+00
+9bb2e6c1-735d-4d22-b8f2-b06944f18c3f,Carolina Andrea ,Cárdenas Palma,20178472-7,carocardenasp99@gmail.com,Universidad del Alba Sede Santiago,4,2024-08-08 01:40:32.685+00,2024-08-08 01:40:32.685+00
+422ce7e8-683f-477e-9144-2be9b2f7fba4,Francisca Isabel ,Asenjo Peña ,19744785-0,f.asenjopea@uandresbello.edu,Universidad Andrés Bello Sede Santiago,7,2024-08-08 01:40:35.154+00,2024-08-08 01:40:35.154+00
+3b6e0c74-360d-4170-9f9a-0c1b182ca554,Javiera,Muñoz Flores,20167234-1,javiera.munoz9@mail.udp.cl,Universidad Diego Portales,6,2024-08-08 01:40:41.879+00,2024-08-08 01:40:41.879+00
+3eabb632-8398-43e2-b043-124d9dbfc1e9,Sebastián Alfonso,Olea Ahumada,21603538-0,sebastian.olea@estudiante.uc.cl,Pontificia Universidad Católica de Chile,1,2024-08-08 01:40:57.248+00,2024-08-08 01:40:57.248+00
+29d77568-5fb1-414f-a749-54bef7c37f8a,Sebastián Felipe,Cayupán Quintremil,20397900-2,seba.cayupanq@gmail.com,Universidad de Valparaíso San Felipe,6,2024-08-08 01:41:06.255+00,2024-08-08 01:41:06.255+00
+9daa3fe3-5c68-4234-b559-521e8e8b858b,Esteban Alejandro,Garrido Aravena,20125828-6,egarridoarav@gmail.com,Universidad de Concepción,6,2024-08-08 01:41:27.45+00,2024-08-08 01:41:27.45+00
+b361ed09-c89f-4ea6-9343-61829bc952a3,Fernanda Macarena,Franzani Alarcon,20239055-2,ferfranzani@gmail.com,Universidad de Talca,7,2024-08-08 01:41:46.125+00,2024-08-08 01:41:46.125+00
+5654124b-f9c1-413f-9241-024cabebe56c,Catalina Belen,Arias Inzunza,20184078-3,cata.arias99@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-08 01:41:47.333+00,2024-08-08 01:41:47.333+00
+189f6707-cf26-4d16-9ef1-8a03b6067280,Daniela Alejandra,Castro Rebolledo,20118944-6,daniela.castro1@mail.udp.cl,Universidad Diego Portales,7,2024-08-08 01:41:50.932+00,2024-08-08 01:41:50.932+00
+903cacdd-50e7-4277-be07-139c5549cdac,Nicolás Ignacio,Ávalos Meneses,21201172-K,nicolasavalos007@gmail.com,Universidad San Sebastián Sede Santiago,4,2024-08-08 01:42:22.405+00,2024-08-08 01:42:22.405+00
+cfd80c72-16a9-4d6f-a923-8754179f0172,Nayda ,Salas Ccoa,24174544-9,nsalas@udalba.cl,Universidad del Alba Sede La Serena,5,2024-08-08 01:42:25.726+00,2024-08-08 01:42:25.726+00
+8678c97a-8fa1-48e8-8cac-98dfd096d8d6,Macarena Andrea Fernanda ,Navarrete Monsalves,20591644-K,macarena.navarrete@usach.cl,Universidad de Santiago de Chile,5,2024-08-08 01:42:44.556+00,2024-08-08 01:42:44.556+00
+9f5fd77c-1dfe-4118-a3fd-3f39d1675ee6,Felipe Chamorro,Chamorro,20831338-k,felipechamorroc@gmail.com,Universidad de Talca,5,2024-08-08 01:42:44.857+00,2024-08-08 01:42:44.857+00
+82094f8e-2ed5-48ec-b5c8-f7f1f3db5344,Matias Alberto ,Rivas Rozas,21885091-K,mrivasr10@estudiante.uc.cl,Pontificia Universidad Católica de Chile,1,2024-08-08 01:43:01.928+00,2024-08-08 01:43:01.928+00
+c2920335-4fee-4415-88f3-d9fd47613c3c,Juana Laura,Villalobos Gahona,20320891-k,juana.villalobos@alumnos.uv.cl,Universidad de Valparaíso Casa Central,7,2024-08-08 01:43:37.879+00,2024-08-08 01:43:37.879+00
+e646fbf2-4de5-4d9b-9ee2-6687b8ec3664,Luis Alberto ,Bustamante Canales ,20288196-3,luis.bustamante.1@ug.uchile.cl,Universidad de Chile,6,2024-08-08 01:45:26.097+00,2024-08-08 01:45:26.097+00
+7b751ae0-2cae-468e-b602-704a40991a84,Ximena ,Vuscovic,19105182-3,ximena.gonroj@gmail.com,Universidad San Sebastián Sede Santiago,5,2024-08-08 01:47:07.179+00,2024-08-08 01:47:07.179+00
+f81b61ea-2abc-4aed-a629-a15c494a17d1,Catalina Paz,Silva Carrasco,20121801-2,catalina.silva1703@gmail.com,Universidad Autónoma de Chile Santiago,5,2024-08-08 01:48:03.816+00,2024-08-08 01:48:03.816+00
+e99acf58-db8f-4a90-8cc1-ed495f2e098c,Ignacio Francisco,Quiroz Jerez,19848423-7,ignacioquirozjerez@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-08 01:48:06.739+00,2024-08-08 01:48:06.739+00
+25adafb2-cf46-4ca2-addb-45e92acd1490,Bárbara ,Rubio Roe ,19955906-0,barbararubioroe@gmail.com,Universidad de Chile,3,2024-08-08 01:50:52.552+00,2024-08-08 01:50:52.552+00
+b33e7471-def7-4b03-9ecd-849bd6c5f539,Daniela ,Garrido Quevedo,20239245-8,daniela.garrido.q@usach.cl,Universidad de Santiago de Chile,6,2024-08-08 01:51:05.795+00,2024-08-08 01:51:05.795+00
+25cfbf8b-8b14-4330-ac15-84bb20b26fd3,Maximiliano Alfredo,Villalón Piña ,19686291-9,maximiliano.villalon@mail.udp.cl,Universidad Diego Portales,6,2024-08-08 01:51:08.122+00,2024-08-08 01:51:08.122+00
+feaa9fc3-84ba-4502-8c4f-9e89548ca399,Felipe ,Lascano Torres ,21489954-k,felipe.lascano@ug.uchile.cl,Universidad de Chile,7,2024-08-08 01:52:49.253+00,2024-08-08 01:52:49.253+00
+c60326dc-26eb-4b2e-bf31-5b4eddc58ae8,Jorge Andrés ,López Weitzel ,20286901-7,jorge.lopez.w@usach.cl,Universidad de Santiago de Chile,6,2024-08-08 01:53:16.578+00,2024-08-08 01:53:16.578+00
+b70c0584-91b9-4c18-95da-393949e9940f,Valentina Ignacia ,Mejias Espejo,20757544-5,valentina.mejias2610@gmail.com,Universidad Bernardo O’Higgins,4,2024-08-08 01:55:25.455+00,2024-08-08 01:55:25.455+00
+3a58d4df-aa1d-4e9b-a568-a385076c7a12,Valentina Paz,Vallejos Cifuentes,20141298-6,valentina.vallejos@mail.udp.cl,Universidad Diego Portales,6,2024-08-08 01:58:29.195+00,2024-08-08 01:58:29.195+00
+a4d2aaf2-933a-407b-ba80-9a69f2974cc8,Catalina Antonia,Godoy Núñez,20360967-1,cgodoynunez@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-08 02:03:37.762+00,2024-08-08 02:03:37.762+00
+a4ae67f1-34e5-482f-9190-281a0ecf3ac4,Amaro ,Erices Pinto,21013319-4,americespinto@gmail.com,Universidad de Concepción,5,2024-08-08 02:05:55.915+00,2024-08-08 02:05:55.915+00
+7655129d-1494-4c57-a254-fad0936cf5f9,María Ignacia,Quiroz Flores,20245080-6,quirozflores@gmail.com,Universidad Andrés Bello Sede Santiago,6,2024-08-08 02:07:54.277+00,2024-08-08 02:07:54.277+00
+b717ae66-ddda-43a6-98f9-42f0ed4fd860,rodrigo alberto ,donoso ogalde,16091194-8,rdonosoo1@correo.uss.cl,Universidad San Sebastián Sede Santiago,7,2024-08-08 02:08:54.765+00,2024-08-08 02:08:54.765+00
+834e6fa6-fd28-408a-bfb7-f18cd4dae8ad,Cristian Felipe,Faúndez López,20803423-5,cfaundezl@uc.cl,Pontificia Universidad Católica de Chile,5,2024-08-08 02:10:12.412+00,2024-08-08 02:10:12.412+00
+e5a30cce-46b6-4e4c-bba8-b77cb38ba28c,Rocio Constanza ,Ortega Vallejos,20909031-7,rocio.ortega.v@ug.uchile.cl,Universidad de Chile,4,2024-08-08 02:12:04.553+00,2024-08-08 02:12:04.553+00
+296fd24f-3e4f-466f-8be5-bc4409fe8a05,Allan Ezequiel,Conus Ruz,20988281-7,conus.allan@gmail.com,Universidad del Desarrollo,4,2024-08-08 02:15:06.088+00,2024-08-08 02:15:06.088+00
+88f3e4d5-68d2-472e-a5a8-a432c2c977de,Romina Irene,Chandía Donaire,21005261-5,richandia18@gmail.com,Universidad Bernardo O’Higgins,3,2024-08-08 02:20:51.464+00,2024-08-08 02:20:51.464+00
+4bf537a9-a9b7-43e3-8784-aeaf762b7cff,Carlos Matias,Oyarce Mejías,20183993-9,carlos.oyarce2@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-08 02:26:12.722+00,2024-08-08 02:26:12.722+00
+a2c115ff-762d-40fe-ada9-c43d56f12bb2,Andrés Ignacio ,Estefane Durán,19872071-2,andres.estefane@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-08 02:28:35.684+00,2024-08-08 02:28:35.684+00
+013e6eda-9ba5-451b-ab29-37ac0ad829c9,Macarena Marcela ,Carrasco Barraza ,20591874-4,maca.gobertt@gmail.com,Universidad de Chile,3,2024-08-08 02:46:07.783+00,2024-08-08 02:46:07.783+00
+01764618-7518-4d35-9089-8a07fe8baa57,Francisca Antonia ,Valenzuela Villanueva ,20638295-3,valenzuelavfrancisca@gmail.com,Universidad de Chile,4,2024-08-08 03:00:08.42+00,2024-08-08 03:00:08.42+00
+7fd3ecc6-7e92-4db9-b1e5-7324798affaa,Joaquín Alejandro,Cortés Flández,20610505-4,j.cortes07@ufromail.cl,Universidad de La Frontera,5,2024-08-08 03:04:21.247+00,2024-08-08 03:04:21.247+00
+f9b2720e-b76d-4c11-af33-4a47973e87a2,Isidora Verónica ,Oportus Molina ,20258034-3,isi.oportus5@gmail.com,Universidad San Sebastián Sede Concepción,7,2024-08-08 03:50:31.253+00,2024-08-08 03:50:31.253+00
+b0ac0f30-e42c-42fd-8322-8f846fda65e4,Isidora Nalidea,Jara Artigas,21239503-k,isidora.jara@ug.uchile.cl,Universidad de Chile,4,2024-08-08 10:07:36.719+00,2024-08-08 10:07:36.719+00
+14f1f868-afa2-4a04-b423-3d37db2c50b7,Katherine Paola,Martínez Castillo,20533316-9,katherine.martinez@mail.udp.cl,Universidad Diego Portales,6,2024-08-08 10:07:59.899+00,2024-08-08 10:07:59.899+00
+a66b6908-19e6-4f06-bfa5-c33411ae6023,Paula Antonia,Santelices Perez,20424394-8,santelicesp@gmail.com,Universidad Andrés Bello Sede Santiago,6,2024-08-08 12:08:39.802+00,2024-08-08 12:08:39.802+00
+fa10e9bc-4036-4093-b8e8-bd06e720db08,Janyre Blandina ,Cerrinos Cruz,14753713-1,janyrecc@gmail.com,Universidad Andrés Bello Sede Santiago,7,2024-08-08 12:29:09.748+00,2024-08-08 12:29:09.748+00
+bdfabab5-d1f5-4146-a2c8-0f4a242ef5ab,Francisca Belén,Cárdenas Montoya,20969886-2,franciscacardenas@ug.uchile.cl,Universidad de Chile,5,2024-08-08 13:15:11.234+00,2024-08-08 13:15:11.234+00
+83c30862-0c8b-4f23-b73a-19ba10af85ce,Maximiliano Eduardo,Olguin Videla,20299481-4,maxi.olguin.v@gmail.com,Universidad Andrés Bello Sede Santiago,7,2024-08-08 13:24:00.659+00,2024-08-08 13:24:00.659+00
+11c7967d-1c72-4778-b31f-1c9716f0f33c,Ignacio Andrés ,Araneda Padilla,20256800-9,ignacio.araneda.p@gmail.com,Universidad Mayor Sede Santiago,6,2024-08-08 15:55:48.782+00,2024-08-08 15:55:48.782+00
+1777ecb9-e435-4147-aad4-4ec3a34e1b02,María Jesús,Saavedra López,19688422-K,musaavedra@uc.cl,Pontificia Universidad Católica de Chile,6,2024-08-08 17:59:21.294+00,2024-08-08 17:59:21.294+00
+3f671777-34e7-41cd-b661-e489ede7f787,Fernanda Paz,Reed Torres,20810679-1,fefi832@gmail.com,Universidad de Santiago de Chile,5,2024-08-08 22:34:42.835+00,2024-08-08 22:34:42.835+00
+4e472142-8694-48d1-b051-ccc9a45a32a6,María de los Ángeles,Gottschalk,20366198-3,maria.gottschalk@mayor.cl,Universidad Mayor Sede Santiago,6,2024-08-08 22:43:06.289+00,2024-08-08 22:43:06.289+00
+80564b76-1d79-4f01-a250-2f5d8caa370a,Ricardo Matias,Galleguillos Ruz,20126921-0,ricardogalleguillosruz@gmail.com,Universidad Autónoma de Chile Santiago,7,2024-08-09 00:11:33.985+00,2024-08-09 00:11:33.985+00
+f6b2dc33-19aa-47e4-a029-62cb72241ef7,Steffi,Seitz Alarcón,20767981-K,steffiseitz51@gmail.com,Universidad de La Frontera,6,2024-08-09 01:21:49.802+00,2024-08-09 01:21:49.802+00
+f902c07f-a408-4714-a894-9131681ef713,victoria cecilia,villarreal vega,20299407-5,vickyvillarreal4@gmail.com,Universidad Andrés Bello Sede Santiago,7,2024-08-09 03:07:33.511+00,2024-08-09 03:07:33.511+00
+68d634db-11f4-4e93-91fa-dd9f5d7bfd05,Fernanda Paulette ,Hermosilla Astudillo ,19557150-3,fernanda.hermosilla@ug.uchile.cl,Universidad de Chile,3,2024-08-09 03:08:36.131+00,2024-08-09 03:08:36.131+00
+112d7de6-326b-48d9-9fa5-9cc6521cb83e,Karina ,Cárcamo Bonilla,19288469-1,karina.carcamob@gmail.com,Universidad de Valparaíso San Felipe,6,2024-08-09 15:59:00.178+00,2024-08-09 15:59:00.178+00
+a2a71103-c12a-41fe-9066-b8f16e1aaf81,Millaray Andrea,Sandoval Davila,19778966-2,milla.sandoval@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-09 18:36:06.626+00,2024-08-09 18:36:06.626+00
+12565560-7a06-4eb5-98e5-816413524c52,Agustín,Cabrera Lobos,20011072-2,acabreralobos@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-09 18:39:26.514+00,2024-08-09 18:39:26.514+00
+7540a015-6281-4ee3-b842-75671f6c25f9,Anais Ordenes,Ordenes Cáceres,20403567-9,anais.ordenes2@gmail.com,Universidad Andrés Bello Sede Santiago,6,2024-08-09 22:01:41.653+00,2024-08-09 22:01:41.653+00
+8c2097f2-854a-4530-9ddd-2bac67842ea6,Silvana Vanesa,Villalobos Pérez,20453185-4,sil.svvp@gmail.com,Universidad de Santiago de Chile,5,2024-08-10 16:45:14.413+00,2024-08-10 16:45:14.413+00
+87ce2833-6cfd-4af7-828a-a02e08dbb91f,Mauricio Max,Raymond Barros,20267932-3,mraymondb@icloud.com,Universidad de Valparaíso Casa Central,7,2024-08-10 19:54:04.232+00,2024-08-10 19:54:04.232+00
+6d4a4f09-3555-4f57-a923-55acfed5822b,Nyckolas Yohanny,Torres Alfaro,20184066-K,nyckotorres1@gmail.com,Universidad de Valparaíso Casa Central,7,2024-08-10 19:57:12.625+00,2024-08-10 19:57:12.625+00
+eab23aaf-fe66-4aae-99bb-cdf554b6bf2b,Constanza Carolina,Cáceres Gálvez,20970978-3,c.cceresglvez1@uandresbello.edu,Universidad Andrés Bello Sede Santiago,5,2024-08-10 22:50:26.595+00,2024-08-10 22:50:26.595+00
+43a9403f-3ab2-49e8-9cb9-e06ae50d6699,Ignacia Andrea,Rojas Sülz,19793327-5,ignacia.rojas.sulz@gmail.com,Universidad Andrés Bello Sede Santiago,5,2024-08-10 22:51:56.888+00,2024-08-10 22:51:56.888+00
+25519262-55eb-41ef-be7c-225ac2391f16,Franco Moisés Astudillo Escalona,Astudillo Escalona,21066827-6,franco.astudillo@mail.udp.cl,Universidad Diego Portales,4,2024-08-11 01:47:54.207+00,2024-08-11 01:47:54.207+00
+c0b1c5e0-7850-4212-be19-9741e272b816,Krishna Derek ,Segovia Díaz ,20837118-5,kdsegovia@udalba.cl,Universidad del Alba Sede La Serena,4,2024-08-11 18:48:55.523+00,2024-08-11 18:48:55.523+00
+c5b8b950-b561-4c8d-9019-59054bc3c0c2,Cristóbal Ignacio ,Gajardo Alvarez ,20159117-1,cristobalgajardoalvarez@gmail.com,Universidad de Chile,4,2024-08-11 22:52:16.677+00,2024-08-11 22:52:16.677+00
+e9b426ff-5879-451d-95f4-c354e5bfcda1,Constanza del Pilar ,Abarca Miranda,20371666-4,constanza.abarca@pregrado.uoh.cl,Universidad de O’Higgins,6,2024-08-12 15:59:44.861+00,2024-08-12 15:59:44.861+00
+8b45c0b8-8a78-4a66-a886-d7d14819cc08,Catalina,Jaure,23120024-k,catalina.jaure.98@gmail.com,Universidad Andrés Bello Sede Viña del Mar,6,2024-08-12 23:07:04.635+00,2024-08-12 23:07:04.635+00
+ed5d820c-1e3f-44ef-b430-62edcf7badde,Juan Pablo,Guzmán Proschle,20809293-6,juguzmanp@udd.cl,Universidad del Desarrollo,5,2024-08-13 00:08:22.687+00,2024-08-13 00:08:22.687+00
+cc67d8a9-eed4-416c-8b6d-58d88732d264,Diego Alonso  ,Herrera Sepúlveda ,20326701-0,dherreras@udd.cl,Universidad del Desarrollo,5,2024-08-13 00:09:27.992+00,2024-08-13 00:09:27.992+00
+89875ee2-9679-4721-a7df-a4c3f628cf55,JULIO SEBASTIAN,GAJARDO BALLADARES,20051587-0,juliosebastian107@gmail.com,Universidad Autónoma de Chile Santiago,7,2024-08-13 00:43:26.711+00,2024-08-13 00:43:26.711+00
+63258c72-ec20-41f7-b398-5ed1b2b2ae3c,Constanza,Valenzuela,20974111-3,vconstanzanam@gmail.com,Pontificia Universidad Católica de Chile,5,2024-08-13 23:55:51.146+00,2024-08-13 23:55:51.146+00
+02f7d2a1-734f-4c1f-8161-77202c5c5359,Martina Isidora ,Escobar Muñoz,21097408-3,martina.escobar@cloud.uautonoma.cl,Universidad Autónoma de Chile Santiago,4,2024-08-14 15:17:51.842+00,2024-08-14 15:17:51.842+00
+b022f245-bdbd-40e8-b2f4-7cf78df3c5a9,Macarena Eileen,Retamales Muñoz,20786903-1,maca.retamales16@gmail.com,Universidad Bernardo O’Higgins,4,2024-08-14 21:36:16.684+00,2024-08-14 21:36:16.684+00
+3fd18e12-3cd9-405d-a0d7-ea2411a64b15,Constanza Belén,Robles Díaz,20758420-7,cfd1228@gmail.com,Universidad de Chile,4,2024-08-16 17:49:38.618+00,2024-08-16 17:49:38.618+00
+e7f9e1e5-44d9-41c2-9930-ea492c0c41a2,Valentina Stephania,Pineda Báez ,20723573-3,valentina.pineda.b@usach.cl,Universidad de Santiago de Chile,5,2024-08-08 19:12:13.038+00,2024-08-16 18:01:54.142+00
+6debd644-8edc-4973-ae07-977702db8eae,Constanza Francisca ,Esteban Lagos ,19526610-7,constanza.esteban@ug.uchile.cl,Universidad de Chile,7,2024-08-17 01:52:59.559+00,2024-08-17 01:52:59.559+00
+18d89178-232e-4d6b-af99-af16fbb97654,Pablo Reveco,Reveco,21258192-5,p.revecodiaz@gmail.com,Universidad de Chile,4,2024-08-17 02:19:08.089+00,2024-08-17 02:19:08.089+00
+96e96a40-5318-4c8e-a5b0-3dbbcbf745f3,Martin,Munita Leiva,21246003-6,martin.munita@ug.uchile.cl,Universidad de Chile,4,2024-08-17 02:19:45.609+00,2024-08-17 02:19:45.609+00
+8a45072a-4b40-48c4-b3d8-9d6b6f1663be,Stephanie Constanza,Gutiérrez Mollenhauer,20222166-1,stephaniemollenhauerg@gmail.com,Universidad Andrés Bello Sede Santiago,6,2024-08-18 17:43:10.303+00,2024-08-18 17:43:10.303+00
+6deaed52-af63-4f52-a03f-8f20b2c9925d,Haziel Elías,Gómez Venegas,20926970-8,haziel.gomezv@gmail.com,Universidad de Chile,4,2024-08-19 01:43:11.604+00,2024-08-19 01:43:11.604+00
+8add21dd-4441-4fe5-bd92-63e89696a9b3,Tomás Alberto,Peña Cifuentes ,21372433-9,tbpena@uc.cl,Pontificia Universidad Católica de Chile,3,2024-08-19 01:48:09.953+00,2024-08-19 01:48:09.953+00
+d7e51a4b-98d0-4660-82c3-4b10748ffe8a,María José ,García González,26235333-8,mariajgg7@gmail.com,Universidad de Chile,5,2024-08-19 02:58:42.59+00,2024-08-19 02:58:42.59+00
+5ce26133-ba9e-4f4c-9e85-6d92ed2b998b,Isidora ,Vásquez Abarca,20805104-0,isivasquezab@gmail.com,Universidad de Chile,5,2024-08-19 03:32:33.858+00,2024-08-19 03:32:33.858+00
+99895b0c-0b95-44eb-bbac-8344881905c3,Jobad Benjamin,Estrada Pavez,20239411-6,jobad.estrada@mail.udp.cl,Universidad Diego Portales,6,2024-08-19 03:44:55.214+00,2024-08-19 03:44:55.214+00
+19314a7f-1064-4067-acb0-447c881809d0,Juan Ignacio,Silva Bastias,20231509-7,juan.silva.bastias@ug.uchile.cl,Universidad de Chile,5,2024-08-19 04:32:55.899+00,2024-08-19 04:32:55.899+00
+d3e232c4-9448-44c1-9308-8a66262eef25,Lesley Anissa,Zumárraga Cajas ,20831325-8,lesleyzumarraga@gmail.com,Universidad de Los Andes,5,2024-08-19 20:38:06.634+00,2024-08-19 20:38:06.634+00
+ddaecb18-d95b-44a5-beb2-34adaa179035,Sebastián Ignacio,Aravena Ávila,20465282-1,siaravena@miuandes.cl,Universidad de Los Andes,7,2024-08-19 20:38:28.484+00,2024-08-19 20:38:28.484+00
